@@ -1,0 +1,17 @@
+Un algoritmo te ayuda a comprar el billete más barato
+~~~
+José Mendiola Zuriarrain
+~~~
+tecnología
+~~~
+Es prácticamente imposible de apreciar a simple vista pero los precios de los billetes de avión siguen un patrón de comportamiento. Es decir, los precios fluctúan en función de múltiples factores que escapan al ojo humano, pero no al gran cerebro de Google. El gigante californiano ha anunciado a bombo y platillo una actualización de calado de Google Flights, su buscador de vuelos. Esta sofisticada herramienta incorpora ahora un algoritmo que tiene en cuenta el histórico de precios de las rutas, de manera que nos alerta cuando el precio de un trayecto dado va a subir, y en consecuencia, cuándo es mejor reservar ese viaje.
+
+El funcionamiento de la herramienta no puede ser más sencillo: el usuario introduce el aeropuerto de origen y destino, la fecha del viaje, y pulsa “intro” para activar toda la maquinaria del ‘big data’ de Google. El motor de búsqueda comienza a analizar el histórico de precios de esa ruta y si activamos la notificación de la variación de precios, Google nos avisará cuando esté previsto que suban a partir de un precio mínimo. Con este dato, el propio usuario puede tomar la decisión de compra en base a datos contrastados y asegurarse que consigue la tarifa más económica posible.
+
+Activando el seguimiento de los precios, Flights nos enviará un e-mail alertando de futuras variaciones sobre un precio dado con un margen de error mínimo, pudiendo configurar criterios de búsqueda como aeropuertos cercanos, líneas aéreas favoritas o incluso si deseamos un vuelo directo o con un máximo de escalas. Google ha dispuesto además que en el momento de seleccionar un vuelo determinado, el sistema nos alerte de posibles precios más económicos si se sale en otras fechas cercanas a la prevista.
+
+Sin embargo, todo lo presentado y pese a su gran valor, es sólo la punta del iceberg de lo que ofrece esta potentísima herramienta: Google Flights permite también dejar que la herramienta sea la que nos sugiera destinos en función del tipo de experiencia que deseemos y lógicamente, al mejor precio. Así, si uno desea viajar a Estados Unidos en diciembre pero no tiene preferencias sobre la ciudad, Flights desplegará un mapa con los diferentes destinos y sus precios, especificando además en qué semana debería reservarse los billetes.
+
+Flights llega ahora al detalle además de informar sobre detalles del vuelo que se haya seleccionado, como si dispone de WiFi, el entretenimiento a bordo, o bien si el asiento cuenta con enchufe. La herramienta especifica asimismo el tiempo previsto de escala en cada aeropuerto si la ruta la incluye. La actualización está ya disponible en España y en nuestro idioma, pero por el momento únicamente como servicio en web y sin una aplicación móvil específica, aunque posiblemente ésta no tarde en llegar.
+
+

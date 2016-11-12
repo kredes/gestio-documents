@@ -1,0 +1,18 @@
+DRIVER DOCUMENTO, CONTENIDO, FRASE, PALABRA
+
+Función 1
+----------
+Testea las constructoras de Documento, Contenido, Frase, Palabra.
+También los getters de Documento.
+
+Función 2
+----------
+Testea constructora y getters de la classe Contenido
+
+Función 3
+----------
+Testea constructora y getters de la clase Frase
+
+Función 4
+----------
+Testea constructora, getters y setters de la clase Palabra

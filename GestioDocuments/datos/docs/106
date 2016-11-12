@@ -1,0 +1,23 @@
+Leer un libro sin pasar una sola página
+~~~
+Javier Barbuzano
+~~~
+tecnología
+~~~
+La capacidad de leer un libro sin tener que abrirlo parece un poder de superhéroe sin demasiadas aplicaciones prácticas. Sin embargo, cualquier arqueólogo se moriría por tener esta habilidad y poder revelar con ella los textos contenidos en libros y pergaminos cuyo estado de conservación es demasiado precario para poder ser leídos pasando una a una sus páginas.
+
+Esto es lo que ha logrado un grupo de ingenieros del Instituto Tecnológico de Massachusetts (MIT, por sus siglas en inglés) y el Instituto Tecnológico de Georgia al crear un dispositivo que permite detectar los caracteres escritos en las páginas de un libro cerrado. Estos investigadores han construido un prototipo y descrito su funcionamiento en un artículo publicado en la revista científica Nature Communications.
+
+Para poder ver a través de las hojas del libro, el aparato emplea un tipo de luz llamada radiación de terahercios. Se trata de una tecnología similar a la que usan los escáneres de los aeropuertos de última generación. Las ondas de terahercios son invisibles al ojo humano y se encuentran entre la radiación infrarroja y las microondas en el espectro electromagnético. La radiación en este rango tiene la capacidad de penetrar ciertos materiales como el papel, la ropa o la madera.
+
+El nuevo dispositivo es capaz de detectar cómo la radiación es reflejada por las variaciones en la estructura y composición del objeto analizado. Para ello se proyecta un haz de esta radiación hacia el libro o documento. Las capas de aire entre las páginas y la tinta en la superficie del papel hacen rebotar parte de la radiación, la cual puede ser recogida por una cámara especial que captura una imagen. A partir de esta imagen, un programa informático emplea un algoritmo creado por los investigadores para interpretar los caracteres observados, que pueden estar invertidos o superpuestos con los de otras páginas, para leer el texto de cada página.
+
+Para probar su dispositivo los científicos utilizaron un pequeño libreto de nueve páginas al que habían retirado la cubierta. “Utilizamos una serie de páginas superpuestas pero no creemos que el que no tuvieran cubierta constituya una limitación importante. Si la cubierta está hecha de cartón puede ser reconocida en el dominio temporal y la señal puede ser filtrada”, explica Barmak Heshmat, uno de los autores del artículo e investigador en el MIT Media Lab.
+
+Según el autor principal del artículo, Albert Redo, este es tan sólo un ejemplo de lo que la tecnología de imágenes por terahercios puede hacer. En un trabajo publicado en 2013, Redo y sus colaboradores utilizaron técnicas similares para encontrar la firma de Goya oculta bajo varias capas de pintura y barniz en la pintura El sacrificio de Vesta, que se atribuía al pintor español pero cuya autoría no había podido ser confirmada. En el este caso, la firma había sido realizada en carboncillo y cubierta por una capa de barniz que se oscureció con el paso del tiempo ocultándola a la vista. La radiación de terahercios resulta especialmente útil en casos como este gracias a que “es sensible tanto a la composición química como a la profundidad a la que se encuentra el objeto observado, permitiendo una resolución de hasta diez micras [una micra equivale a 0,001 milímetros] de precisión”, según explica Redo.
+
+Actualmente Redo se concentra en las aplicaciones industriales de esta tecnología como métodos no destructivo en el control de calidad. Gracias a ella es posible detectar la presencia de defectos en un objeto sin dañarlo. Esto resulta especialmente útil si el coste de producción de la pieza que se desea analizar es elevado.
+
+Varios museos, incluyendo el Metropolitan Museum of Art de Nueva York y el Harvard Art Museum en Boston, se han interesado ya por la tecnología presentada por Redo y sus colaboradores dado su potencial uso en la conservación e interpretación de documentos históricos.
+
+

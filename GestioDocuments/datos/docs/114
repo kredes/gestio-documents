@@ -1,0 +1,45 @@
+Así se detectan los ataques en el centro de ciberseguridad de España
+~~~
+Beatriz Guillén
+~~~
+tecnología
+~~~
+En el tercer piso de un edificio a las afueras de León está la sala desde la que se controlan y analizan todos los ciberataques que sufre España. Es un espacio de paredes blancas, amplios ventanales y plagado de ordenadores, donde 25 especialistas supervisan en tiempo real el estado de las redes y dispositivos que utilizan ciudadanos, universidades, empresas e instituciones. Se trata del centro de seguridad CERTSI, el principal centro de alerta del Instituto de Ciberseguridad de España (INCIBE), que este año cumple una década. Desde 2006 se les ha multiplicado el trabajo. Solo los ataques registrados hasta septiembre de este año (90.000) doblan ya los que se atendieron en todo 2015. Hace dos años, tan solo detectaron 18.000. Los números no dejan de aumentar. También en ciberdelitos: "En 2015, se registraron 60.400, un 25% más que en 2014 y un 61% más que hace cuatro años", explica el Secretario de Estado de Seguridad, Francisco Martínez. Una previsión que sigue creciendo y que ha situado a España como el tercer país que más ciberataques sufre, solo detrás de EE UU y Reino Unido.
+
+Sin embargo, a pesar de las cifras de alarma, hoy el día está en nivel verde en el centro de León. La alerta es del 27%. Un porcentaje que se calcula en función del número de dispositivos que han sido atacados y del tipo de malware, programa malicioso, que les ha afectado.
+
+Las amenazas más comunes a las que suele enfrentarse son los bots (programas que infectan equipos para que puedan ser controlados por un hacker) y los delitos de fraude electrónico con suplantación de identidad e intentos de robos de credenciales personales (cuentas de correo, redes sociales, tarjetas bancarias). Ambos ataques se producen con regularidad y no suelen provocar excesiva preocupación en el CERTSI, que recuerda al centro de pantallas de control de la DGT, pero centrado en la ciberseguridad.
+
+"El nivel de alerta de hoy es habitual", explica tranquilo Javier Berciano, responsable del CERTSI, mirando la gran pantalla principal que preside la sala. Se trata de un mapa de España que muestra por zonas de calor donde está el mayor número de ataques en tiempo real. Resalta Madrid por encima de todos, seguido de Barcelona y, con muchas distancia, de Málaga. En este momento hay 12.327 incidencias en la zona de la capital.
+
+Este número no significa que todas hayan comenzado ahora, sino que en la mayor parte de los casos llevan días, semanas o meses. Al acercarse un poco más, se comprueba que de esas incidencias 11.112 son bots: "Lo único que puede hacer pensar al usuario que su equipo está infectado es que funcione más lento y a menor rendimiento". De ahí, que las incidencias se acumulen durante largos períodos de tiempo.
+
+Al centro de ciberseguridad llegan más datos: cuál es el número IP del equipo infectado, la fecha exacta de cuándo se detectó, cuál fue la última conexión y, el más importante, cuál es el nivel de amenaza. "Actuamos de diferente manera según este nivel de importancia, que normalmente, se corresponde con el tipo de ataque", relata Berciano.
+
+"No tenemos los recursos suficientes para solucionar manualmente todos los ataques que sufren ciudadanos, universidades, empresa e infraestructuras", reconoce Berciano. Así, los protocolos son distintos según el ataque. Cuando detectan ataques de bots, fraudes o virus a equipos de ciudadanos se ponen en contacto con su proveedor de servicios de Internet (Jazztel, Telefónica, Vodafone...) y le comunican la IP del equipo infectado para que sean ellos quienes contacten con el usuario.
+
+"Para nosotros todo es anónimo, tienen que ser los proveedores quienes traten de solucionarlo". Estos tienen la obligación de mandar una notificación al cliente quien es, en última instancia, el encargado de solucionarse el problema. Por esa razón, hacen mucho hincapié en las campañas de concienciación ciudadana sobre la importancia de la ciberseguridad.
+
+¿Cuál es el porcentaje de equipos desinfectados? "Pues sorprendentemente alto. Varía mucho, pero oscila ente el 35% al 65% de ciudadanos que limpian su dispositivo".
+
+En el caso de equipos que pertenecen a universidades o a infraestructuras estatales, el CERTSI se pone en contacto telefónico inmediato con los servicios técnicos de estas instituciones para avisar del ataque. Y trata de realizar una investigación sobre el origen del ataque.
+
+El INCIBE considera infraestructura crítico todo servicio indispensable y cuya caída impediría el desarrollo normal de una ciudad y un país. Así, mantiene bajo control permanente todas las redes que pertenecen a los sectores de agua, energía, transporte, telecomunicaciones, recogida de residuos y sector financiero.
+
+Los ataques a estas infraestructuras también aumentan cada año: solo los incidentes que se registraron en el primer semestre de 2016 (231) ya doblaban todos los ocurridos en 2015, que, a su vez, duplicaban los sufridos en 2014. "Es un hecho que los ciberataques contra nuestras empresas e infraestructuras han aumentado en número, complejidad y gravedad", sostenía el secretario de Estado de Seguridad durante la cumbre del ENISE10 en León.
+
+En este momento en el centro de León, solo hay un ataque contra una infraestructura crítica. Una red relacionada con el sector del agua en Murcia. Se trata de un conficker, un gusano informático que ataca al sistema, puede propagarse y recolectar información personal. "Nos ponemos en contacto inmediato y directo con el equipo técnico de allí para que lo solucionen", explica el responsable del CERTSI.
+
+Es muy difícil predecir cuándo pueden ocurrir algunos de estos ataques. "Aquí no hay temporadas fijas de más o menos intensidad, sino que va por oleadas". Una de las más graves la sufrieron en junio y julio de este año. Fue denominada como la "campaña Endesa".
+
+El proceso era sencillo: un empleado de Endesa recibía un correo en nombre de la empresa con una factura muy superior a las cuotas normales, alrededor de 900 euros. Cuando pinchaba en el enlace, "Consulta tu factura y consumo", se descargaba automáticamente un virus que cifraba todos los archivos y datos del ordenador y los dejaba inservibles. El hacker solicitaba entonces una cantidad de dinero para que el usuario pudiera "rescatarlos".
+
+Este tipo de ataques, conocidos como ransomware, son secuestros de una cierta complejidad, bastante frecuentes y uno de los ataques más graves, ya que implican el pago de un rescate monetario.
+
+"Hay virus de 2007 que están afectando a nuestro parque tecnológico, eso significa equipos que no se actualizan o parchean desde hace nueve años", describe con sorpresa Alberto Hernández, recién nombrado director general de INCIBE, durante la conferencia de inauguración de ENISE10. Este dato da una perspectiva de lo vulnerables que son una gran parte de los equipos en España, tanto de ciudadanos como de empresas.
+
+Esa vulnerabilidad convierte a España en un posible foco de ataques. "Principalmente provienen de Europa del Este, de Brasil y de China. Aunque una gran parte también de servidores de Estados Unidos", explica Berciano señalando a la pantalla principal. Ahí se muestra en tiempo real con flechas de luz de donde llegan los ataques. En este momento la más fuerte tiene su origen en EE UU: 11.849 ataques en este momento. Alemania también se cuela en la lista: 2.566 incidentes registrados provienen de servidores alemanes. En total, en tiempo real, España recibe 128.087 ataques, pero también envía: 32.700 ataques salen de nuestros servidores. "Las fronteras no existen ya en el cibercrimen", sostenía el secretario de Estado de Cooperación Internacional, Jesús Manuel Gracia.
+
+Para hacer frente a estos incidentes, y al resto de objetivos que promueve, el INCIBE cuenta con un presupuesto de 20,7 millones. Y aun así, el actual director del INCIBE reconoce: "Nos estamos perdiendo el 70%". Su predecesor, Miguel Rego, le secunda: "Todo lo que vemos no es todo lo que hay. Todavía no estamos haciendo suficiente".
+
+
