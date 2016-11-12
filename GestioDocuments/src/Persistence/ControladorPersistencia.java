@@ -69,6 +69,8 @@ public class ControladorPersistencia implements CtrlPersistencia {
     private void updateMeta(boolean rewriteAllIDs) throws IOException {
         StandardOpenOption[] options = rewriteAllIDs ? OVERWRITE : APPEND;
 
+        if (rewriteAllIDs) Files.delete(Paths.get(META_FOLDER.toString(), "ids"));
+
         try (BufferedWriter writer = Files.newBufferedWriter(Paths.get(META_FOLDER.toString(), "ids"), options)) {
             if (rewriteAllIDs) {
                 for (Integer id : docIDs) writer.write(String.valueOf(id) + "\n");
@@ -77,6 +79,7 @@ public class ControladorPersistencia implements CtrlPersistencia {
             }
         }
 
+        Files.delete(Paths.get(META_FOLDER.toString(), "highest_id"));
         try (BufferedWriter writer = Files.newBufferedWriter(Paths.get(META_FOLDER.toString(), "highest_id"), OVERWRITE)) {
             writer.write(String.valueOf(idCounter));
         }

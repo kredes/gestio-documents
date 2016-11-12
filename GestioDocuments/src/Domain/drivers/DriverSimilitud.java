@@ -71,11 +71,20 @@ public class DriverSimilitud {
 
             try {
                 double similitud = calcSimilitud.calculaSimilitud(d1, d2);
-                System.out.println(
-                        String.format("Los documentos %d ('%s') y %d ('%s') tienen una similitud de %f (%f%%)",
-                                id1, d1.getTituloString(), id2, d2.getTituloString(), similitud, similitud*100
-                        )
-                );
+                if (seleccion == 1) {
+                    System.out.println(
+                            String.format(
+                                    "Los documentos %d ('%s') y %d ('%s') tienen %.0f palabras en común (normalizado a porcentaje en DriverCasosUso)",
+                                    id1, d1.getTituloString(), id2, d2.getTituloString(), similitud
+                            )
+                    );
+                } else {
+                    System.out.println(
+                            String.format("Los documentos %d ('%s') y %d ('%s') tienen una similitud de %f (%f%%)",
+                                    id1, d1.getTituloString(), id2, d2.getTituloString(), similitud, similitud*100
+                            )
+                    );
+                }
             } catch (IOException e) {
                 e.printStackTrace();
             }

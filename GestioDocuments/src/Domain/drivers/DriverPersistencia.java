@@ -113,7 +113,7 @@ public class DriverPersistencia {
                     ArrayList<String> tags = new ArrayList<>();
                     tags.add(scanner.nextLine());
 
-                    System.out.println("Contenido (terminado por la cadena '~~'): ");
+                    System.out.println("Contenido (terminado por una línea con sólamente la cadena '~~'): ");
                     StringBuilder contenido = new StringBuilder();
                     String aux;
                     while (!(aux = scanner.nextLine()).equals("~~")) {
@@ -152,7 +152,7 @@ public class DriverPersistencia {
                     ArrayList<String> tags = new ArrayList<>();
                     tags.add(scanner.nextLine());
 
-                    System.out.println("Nuevo contenido (terminado por la cadena '~~'): ");
+                    System.out.println("Nuevo contenido (terminado por una línea con sólamente la cadena '~~'): ");
                     StringBuilder contenido = new StringBuilder();
                     String aux;
                     while (!(aux = scanner.nextLine()).equals("~~")) {
