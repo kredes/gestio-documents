@@ -9,7 +9,7 @@ public class Frase {
 
     // Frase
     private ArrayList<Palabra> palabras;
-    private static final String separadores = "\n\t .,;¿?¡!'\"/\\+\\(\\)\\[\\]–&“”‘’…«»º:";
+    //private static final String separadores = "\n\t\\s\\.,;¿?¡!'\"/\\+\\(\\)\\[\\]–&“”‘’…«»º:";
 
 
     /* CONSTRUCTORAS */
@@ -27,24 +27,23 @@ public class Frase {
     public Frase(String fraseString) throws IOException {
         palabras = new ArrayList<Palabra>();
 
-        String separadores = "[ .,;?!¡¿\'\"\\[\\]]+";
+        String separadores = "[ \\s.,;?!¡¿\'\"\\[\\]\\(\\)—&“”‘’…«»ºª:*%/+]+";
         String[] pals = fraseString.split(separadores);
         for(int i = 0; i < pals.length; ++i){
-            Palabra p = new Palabra(pals[i]);
-            if(!stopWord(p.toString())) palabras.add(p);
+            if (!pals[i].isEmpty() && !esNumero(pals[i]) && pals[i].length() > 1) {
+                Palabra p = new Palabra(pals[i].toLowerCase());
+                if (!stopWord(p.toString())) palabras.add(p);
+            }
         }
+    }
 
-
-
-        /*StringTokenizer st = new StringTokenizer(fraseString, separadores, false);
-
-        while (st.hasMoreTokens()) {
-            String s = st.nextToken();
-            if(!stopWord(s)
-                    && s.charAt(s.length()-1) != '%'
-                    && s.length()>1)
-                palabras.add(new Palabra(s));
-        }*/
+    private Boolean esNumero(String s) {
+        try {
+            Double d = Double.valueOf(s);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     private boolean stopWord (String w) throws IOException {

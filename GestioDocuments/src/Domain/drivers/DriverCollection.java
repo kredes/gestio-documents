@@ -2,13 +2,11 @@ package Domain.drivers;
 
 import Domain.Collection;
 import Domain.Documento;
-import Domain.Palabra;
 import Persistence.ControladorPersistencia;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.SortedMap;
 
 public class DriverCollection {
 
@@ -31,10 +29,9 @@ public class DriverCollection {
             System.out.println(
                     //FUNCIONAN CASOS 1 y 6!! EL RESTO POR HACER!!
                     "Testeando la clase Collection de la capa de dominio (clase Collection).\n" +
-                            "   1. Ver estado interno\n" +
-                            "   2. Añadir documento\n" +
-                            "   3. Modificar documento\n" +
-                            "   4. Eliminar documento\n" +
+                            "   1. Añadir documento\n" +
+                            "   2. Modificar documento\n" +
+                            "   3. Eliminar documento\n" +
                             "   0. Volver\n"
             );
 
@@ -44,30 +41,8 @@ public class DriverCollection {
                 // Volver
                 case 0:
                     return;
-                // Ver estado interno
-                // ID Docs Collection; TopWords;
-                case 1: {
-                    int nDocs = collection.getNDocs();
-                    ArrayList<String> ids = new ArrayList<>();
-                    for (SortedMap.Entry<Integer, Documento> entry: collection.getCollection().entrySet()) {
-                        ids.add(String.valueOf(entry.getKey()));
-                    }
-                    System.out.print("TopWords (Hiperespacio): ");
-                    System.out.println(
-                            String.format(
-                                    "List<String> topWords = {%s}\n",
-                                    String.join(", ", collection.getTopWords()))
-                    );
-
-                    System.out.print("Nº de documentos donde aparece cada top word: ");
-                    for (SortedMap.Entry<Palabra,Double> entry : collection.getNDocsPerWord().entrySet()) {
-                        System.out.print(entry.getKey() + ": " + entry.getValue() + ", ");
-                    }
-                    System.out.println();
-                    break;
-                }
                 //Añadir documento
-                case 2: {
+                case 1: {
                     System.out.print("Título: ");
                     String titulo = scanner.nextLine();
 
@@ -102,7 +77,7 @@ public class DriverCollection {
                     break;
                 }
                 // Modificar documento
-                case 3: {
+                case 2: {
                     System.out.print("Introduce la ID del documento a modificar: ");
                     int id = scanner.nextInt();
                     scanner.nextLine();
@@ -145,7 +120,7 @@ public class DriverCollection {
                     break;
                 }
                 // Eliminar documento
-                case 4:
+                case 3:
                     System.out.print("Introduce la ID del documento a eliminar: ");
                     int id = scanner.nextInt();
                     scanner.nextLine();

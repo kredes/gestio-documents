@@ -10,9 +10,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-/**
- * Created by AlbertoGomez on 03/11/2016.
- */
+
 public class DriverDocumentoContenidoFrasePalabra {
 
     private static ControladorPersistencia ctrlPersistencia;
@@ -36,7 +34,8 @@ public class DriverDocumentoContenidoFrasePalabra {
                             "   1. Crear Documento (Contenido, Frases y palabras) y mostrar: \n" +
                             "   2. Crear contenido y retornarlo: \n" +
                             "   3. Crear frase y retornarla: \n" +
-                            "   4. Crear palabra y retornarla: \n"
+                            "   4. Crear palabra y retornarla: \n" +
+                            "   0. Volver"
             );
 
             int seleccion = scanner.nextInt();
