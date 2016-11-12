@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="14.2">
-  <zoom_level>10</zoom_level>
+  <zoom_level>9</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>390</x>
+      <x>432</x>
       <y>360</y>
-      <w>160</w>
-      <h>120</h>
+      <w>144</w>
+      <h>108</h>
     </coordinates>
     <panel_attributes>style=autoresize
 fontsize=10
@@ -25,10 +25,10 @@ addWord(w: Palabra)</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>180</x>
+      <x>243</x>
       <y>360</y>
-      <w>150</w>
-      <h>120</h>
+      <w>135</w>
+      <h>108</h>
     </coordinates>
     <panel_attributes>style=autoresize
 fontsize=10
@@ -46,10 +46,10 @@ getFrase(): ArrayList&lt;Palabra&gt;</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>20</x>
-      <y>410</y>
-      <w>90</w>
-      <h>70</h>
+      <x>99</x>
+      <y>405</y>
+      <w>81</w>
+      <h>63</h>
     </coordinates>
     <panel_attributes>style=autoresize
 fontsize=10
@@ -63,10 +63,10 @@ toString(): String</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>580</x>
-      <y>320</y>
-      <w>530</w>
-      <h>270</h>
+      <x>603</x>
+      <y>324</y>
+      <w>477</w>
+      <h>243</h>
     </coordinates>
     <panel_attributes>style=autoresize
 fontsize=10
@@ -97,10 +97,10 @@ getNumeroPalabras(): double</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>320</x>
-      <y>440</y>
-      <w>90</w>
-      <h>40</h>
+      <x>369</x>
+      <y>432</y>
+      <w>81</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;&gt;&gt;
 m1=*
@@ -110,10 +110,10 @@ m2=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>100</x>
-      <y>440</y>
-      <w>110</w>
-      <h>40</h>
+      <x>171</x>
+      <y>432</y>
+      <w>99</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-
 m1=1
@@ -123,10 +123,10 @@ m2=1..*</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>650</x>
-      <y>680</y>
-      <w>330</w>
-      <h>230</h>
+      <x>666</x>
+      <y>648</y>
+      <w>297</w>
+      <h>207</h>
     </coordinates>
     <panel_attributes>style=autoresize
 fontsize=10
@@ -153,10 +153,10 @@ consultaAutorPrefijo(s: String): ArrayList&lt;String&gt;
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>210</x>
-      <y>540</y>
-      <w>80</w>
-      <h>70</h>
+      <x>270</x>
+      <y>522</y>
+      <w>72</w>
+      <h>63</h>
     </coordinates>
     <panel_attributes>style=autoresize
 fontsize=10
@@ -170,26 +170,10 @@ validar()</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>20</x>
-      <y>940</y>
-      <w>950</w>
-      <h>100</h>
-    </coordinates>
-    <panel_attributes>style=wordwrap
-*Restricciones textuales*
---
-1. Una frase comienza con una letra mayúscula, un signo de interrogación o un signo de exclamación y termina con un punto, signo de interrogación o signo de exclamación seguido de un espacio o un salto de línea.
-2. Contenido es una secuencia de frases ordenadas.
-3. Una frase es una secuencia ordenada de palabras.</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>1280</x>
-      <y>890</y>
-      <w>110</w>
-      <h>140</h>
+      <x>1332</x>
+      <y>333</y>
+      <w>99</w>
+      <h>126</h>
     </coordinates>
     <panel_attributes>style=autoresize
 fontsize=10
@@ -208,10 +192,10 @@ getStopWordsSet()</panel_attributes>
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>0</x>
-      <y>1090</y>
-      <w>1420</w>
-      <h>220</h>
+      <x>1260</x>
+      <y>144</y>
+      <w>189</w>
+      <h>126</h>
     </coordinates>
     <panel_attributes>Capa Datos
 --
@@ -222,10 +206,10 @@ layer=-1</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1230</x>
-      <y>1130</y>
-      <w>170</w>
-      <h>50</h>
+      <x>1278</x>
+      <y>198</y>
+      <w>153</w>
+      <h>45</h>
     </coordinates>
     <panel_attributes>style=autoresize
 /&lt;&lt;singleton&gt;&gt;/
@@ -235,21 +219,21 @@ ControladorPersistencia</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1320</x>
-      <y>1020</y>
-      <w>30</w>
-      <h>130</h>
+      <x>1368</x>
+      <y>234</y>
+      <w>27</w>
+      <h>117</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
+    <additional_attributes>10.0;110.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>0</x>
-      <y>0</y>
-      <w>1520</w>
-      <h>260</h>
+      <x>81</x>
+      <y>144</y>
+      <w>1170</w>
+      <h>126</h>
     </coordinates>
     <panel_attributes>Capa Presentación
 --
@@ -260,23 +244,23 @@ layer=-1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1300</x>
-      <y>230</y>
-      <w>30</w>
-      <h>130</h>
+      <x>1035</x>
+      <y>252</y>
+      <w>243</w>
+      <h>243</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
 m2=1</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;30.0;250.0;30.0;250.0;250.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1130</x>
-      <y>340</y>
-      <w>370</w>
-      <h>140</h>
+      <x>1098</x>
+      <y>477</y>
+      <w>333</w>
+      <h>126</h>
     </coordinates>
     <panel_attributes>style=autoresize
 fontsize=10
@@ -296,10 +280,10 @@ buscarRelevantes(query: String, k: Integer) : ArrayList&lt;Documento&gt;</panel_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1210</x>
-      <y>140</y>
-      <w>200</w>
-      <h>100</h>
+      <x>927</x>
+      <y>171</y>
+      <w>180</w>
+      <h>90</h>
     </coordinates>
     <panel_attributes>style=autoresize
 /&lt;&lt;singleton&gt;&gt;/
@@ -313,10 +297,10 @@ getInstance()</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1070</x>
-      <y>940</y>
-      <w>170</w>
-      <h>80</h>
+      <x>1044</x>
+      <y>747</y>
+      <w>153</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>style=autoresize
 fontsize=10
@@ -331,10 +315,10 @@ aplicar(e: Expresion, d: Documento)</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>370</x>
-      <y>560</y>
-      <w>50</w>
-      <h>30</h>
+      <x>414</x>
+      <y>540</y>
+      <w>45</w>
+      <h>27</h>
     </coordinates>
     <panel_attributes>style=autoresize
 fontsize=10
@@ -344,10 +328,10 @@ Query</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>280</x>
-      <y>550</y>
-      <w>110</w>
-      <h>40</h>
+      <x>333</x>
+      <y>531</y>
+      <w>99</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;
 </panel_attributes>
@@ -356,10 +340,10 @@ Query</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>210</x>
-      <y>580</y>
-      <w>200</w>
-      <h>120</h>
+      <x>270</x>
+      <y>558</y>
+      <w>180</w>
+      <h>108</h>
     </coordinates>
     <panel_attributes>lt=-
 </panel_attributes>
@@ -368,10 +352,10 @@ Query</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>40</x>
-      <y>640</y>
-      <w>180</w>
-      <h>80</h>
+      <x>117</x>
+      <y>612</y>
+      <w>162</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>style=autoresize
 fontsize=10
@@ -386,10 +370,10 @@ relevancia(d1: Documento, q: Query)</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>300</x>
-      <y>640</y>
-      <w>270</w>
-      <h>80</h>
+      <x>351</x>
+      <y>612</y>
+      <w>243</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>style=autoresize
 fontsize=10
@@ -404,10 +388,10 @@ calculaSimilitud(d1: Documento, d2: Documento) : Double</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>540</x>
-      <y>440</y>
-      <w>60</w>
-      <h>40</h>
+      <x>567</x>
+      <y>432</y>
+      <w>54</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=-
 m2=1</panel_attributes>
@@ -416,23 +400,10 @@ m2=1</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>20</x>
-      <y>350</y>
-      <w>50</w>
-      <h>30</h>
-    </coordinates>
-    <panel_attributes>style=autoresize
-fontsize=10
-String</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>30</x>
-      <y>530</y>
-      <w>90</w>
-      <h>70</h>
+      <x>108</x>
+      <y>513</y>
+      <w>81</w>
+      <h>63</h>
     </coordinates>
     <panel_attributes>style=autoresize
 fontsize=10
@@ -446,10 +417,10 @@ siguiente: Nodo</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>110</x>
-      <y>550</y>
-      <w>120</w>
-      <h>50</h>
+      <x>180</x>
+      <y>531</y>
+      <w>108</w>
+      <h>45</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
@@ -461,10 +432,10 @@ Raíz
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>140</x>
-      <y>750</y>
-      <w>110</w>
-      <h>30</h>
+      <x>207</x>
+      <y>711</y>
+      <w>99</w>
+      <h>27</h>
     </coordinates>
     <panel_attributes>style=autoresize
 fontsize=10
@@ -474,10 +445,10 @@ CalcRelevanciaTipo1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>120</x>
-      <y>730</y>
-      <w>90</w>
-      <h>40</h>
+      <x>189</x>
+      <y>693</y>
+      <w>81</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;70.0;10.0;70.0;20.0</additional_attributes>
@@ -485,10 +456,10 @@ CalcRelevanciaTipo1</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>260</x>
-      <y>750</y>
-      <w>120</w>
-      <h>40</h>
+      <x>315</x>
+      <y>711</y>
+      <w>108</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>style=autoresize
 fontsize=10
@@ -499,10 +470,10 @@ CalcSimilitudCoseno
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>20</x>
-      <y>750</y>
-      <w>110</w>
-      <h>30</h>
+      <x>99</x>
+      <y>711</y>
+      <w>99</w>
+      <h>27</h>
     </coordinates>
     <panel_attributes>style=autoresize
 fontsize=10
@@ -512,10 +483,10 @@ CalcRelevanciaTipo2</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>60</x>
-      <y>710</y>
-      <w>90</w>
-      <h>60</h>
+      <x>135</x>
+      <y>675</y>
+      <w>81</w>
+      <h>54</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
     <additional_attributes>70.0;10.0;70.0;30.0;10.0;30.0;10.0;40.0</additional_attributes>
@@ -523,10 +494,10 @@ CalcRelevanciaTipo2</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>510</x>
-      <y>760</y>
-      <w>110</w>
-      <h>30</h>
+      <x>540</x>
+      <y>720</y>
+      <w>99</w>
+      <h>27</h>
     </coordinates>
     <panel_attributes>style=autoresize
 fontsize=10
@@ -536,10 +507,10 @@ CalcSimilitudTFIDF</panel_attributes>
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>0</x>
-      <y>280</y>
-      <w>1520</w>
-      <h>790</h>
+      <x>81</x>
+      <y>288</y>
+      <w>1368</w>
+      <h>603</h>
     </coordinates>
     <panel_attributes>Capa Dominio
 --
@@ -551,10 +522,10 @@ layer=-1
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1070</x>
-      <y>850</y>
-      <w>110</w>
-      <h>40</h>
+      <x>1071</x>
+      <y>666</y>
+      <w>99</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>style=autoresize
 fontsize=10
@@ -565,10 +536,10 @@ AplicadorExpresion</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1110</x>
-      <y>880</y>
-      <w>30</w>
-      <h>80</h>
+      <x>1107</x>
+      <y>693</y>
+      <w>27</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
     <additional_attributes>10.0;60.0;10.0;10.0</additional_attributes>
@@ -576,10 +547,10 @@ AplicadorExpresion</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1280</x>
-      <y>530</y>
-      <w>80</w>
-      <h>40</h>
+      <x>1233</x>
+      <y>666</y>
+      <w>72</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>style=autoresize
 fontsize=10
@@ -588,23 +559,12 @@ CtrlDominio</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>30</x>
-      <y>370</y>
-      <w>30</w>
-      <h>60</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;40.0</additional_attributes>
-  </element>
-  <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>390</x>
-      <y>750</y>
-      <w>100</w>
-      <h>40</h>
+      <x>432</x>
+      <y>711</y>
+      <w>90</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>style=autoresize
 fontsize=10
@@ -615,10 +575,10 @@ CalcSimilitudFreq
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>20</x>
-      <y>850</y>
-      <w>420</w>
-      <h>70</h>
+      <x>108</x>
+      <y>801</y>
+      <w>378</w>
+      <h>63</h>
     </coordinates>
     <panel_attributes>style=autoresize
 fontsize=10
@@ -632,10 +592,10 @@ cosinus(a1: ArrayList&lt;Double&gt;, a2: ArrayList&lt;Double&gt;): Double
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>490</x>
-      <y>830</y>
-      <w>120</w>
-      <h>80</h>
+      <x>513</x>
+      <y>792</y>
+      <w>108</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>style=autoresize
 fontsize=10
@@ -650,10 +610,10 @@ MyPair(key: K, value: V)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>310</x>
-      <y>710</y>
-      <w>150</w>
-      <h>60</h>
+      <x>360</x>
+      <y>675</y>
+      <w>135</w>
+      <h>54</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
     <additional_attributes>130.0;10.0;130.0;30.0;10.0;30.0;10.0;39.0</additional_attributes>
@@ -661,10 +621,10 @@ MyPair(key: K, value: V)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>430</x>
-      <y>730</y>
-      <w>30</w>
-      <h>40</h>
+      <x>468</x>
+      <y>693</y>
+      <w>27</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;20.0</additional_attributes>
@@ -672,10 +632,10 @@ MyPair(key: K, value: V)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>430</x>
-      <y>730</y>
-      <w>150</w>
-      <h>50</h>
+      <x>468</x>
+      <y>693</y>
+      <w>135</w>
+      <h>45</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;130.0;10.0;130.0;30.0</additional_attributes>
@@ -683,10 +643,10 @@ MyPair(key: K, value: V)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>790</x>
-      <y>580</y>
-      <w>30</w>
-      <h>120</h>
+      <x>792</x>
+      <y>558</y>
+      <w>27</w>
+      <h>108</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-
 m1=1
@@ -696,21 +656,21 @@ m2=*</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1310</x>
-      <y>470</y>
-      <w>40</w>
-      <h>80</h>
+      <x>1260</x>
+      <y>594</y>
+      <w>36</w>
+      <h>90</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>14.0;10.0;10.0;60.0</additional_attributes>
+    <additional_attributes>14.0;10.0;10.0;80.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1050</x>
-      <y>160</y>
-      <w>120</w>
-      <h>80</h>
+      <x>801</x>
+      <y>180</y>
+      <w>108</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>style=autoresize
 DriverCasosUso
@@ -723,10 +683,10 @@ run()</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1270</x>
-      <y>40</y>
-      <w>130</w>
-      <h>80</h>
+      <x>1125</x>
+      <y>180</y>
+      <w>117</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>style=autoresize
 DriverPersistencia
@@ -739,10 +699,10 @@ run()</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>800</x>
-      <y>150</y>
-      <w>110</w>
-      <h>80</h>
+      <x>684</x>
+      <y>180</y>
+      <w>99</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>style=autoresize
 DriverCollection
@@ -755,10 +715,10 @@ run()</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>170</x>
-      <y>110</y>
-      <w>270</w>
-      <h>80</h>
+      <x>234</x>
+      <y>180</y>
+      <w>243</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>style=autoresize
 DriverDocumentoContenidoFrasePalabra
@@ -771,10 +731,10 @@ run()</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>510</x>
-      <y>40</y>
-      <w>100</w>
-      <h>80</h>
+      <x>540</x>
+      <y>180</y>
+      <w>90</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>style=autoresize
 DriverSimilitud
@@ -787,106 +747,118 @@ run()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1100</x>
-      <y>230</y>
-      <w>120</w>
-      <h>130</h>
+      <x>846</x>
+      <y>243</y>
+      <w>333</w>
+      <h>252</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
 m2=1</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;50.0;100.0;50.0;100.0;110.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0;350.0;50.0;350.0;260.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1390</x>
-      <y>80</y>
-      <w>180</w>
-      <h>1100</h>
+      <x>1233</x>
+      <y>171</y>
+      <w>144</w>
+      <h>81</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
 m2=1</panel_attributes>
-    <additional_attributes>10.0;10.0;160.0;10.0;160.0;1070.0;10.0;1070.0</additional_attributes>
+    <additional_attributes>10.0;60.0;40.0;60.0;40.0;10.0;140.0;10.0;140.0;30.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>250</x>
-      <y>180</y>
-      <w>30</w>
-      <h>200</h>
+      <x>306</x>
+      <y>243</y>
+      <w>27</w>
+      <h>135</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
 m2=1</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;180.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;130.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>400</x>
-      <y>180</y>
-      <w>30</w>
-      <h>200</h>
+      <x>441</x>
+      <y>243</y>
+      <w>27</w>
+      <h>135</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
 m2=1</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;180.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;130.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>430</x>
-      <y>150</y>
-      <w>270</w>
-      <h>190</h>
+      <x>468</x>
+      <y>216</y>
+      <w>153</w>
+      <h>153</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
 m2=1</panel_attributes>
-    <additional_attributes>10.0;10.0;250.0;10.0;250.0;170.0</additional_attributes>
+    <additional_attributes>10.0;10.0;30.0;10.0;30.0;140.0;150.0;140.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>80</x>
-      <y>140</y>
-      <w>110</w>
-      <h>290</h>
+      <x>153</x>
+      <y>216</y>
+      <w>99</w>
+      <h>207</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
 m2=1</panel_attributes>
-    <additional_attributes>90.0;10.0;10.0;10.0;10.0;270.0</additional_attributes>
+    <additional_attributes>90.0;10.0;60.0;10.0;60.0;180.0;10.0;180.0;10.0;210.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>840</x>
-      <y>220</y>
-      <w>30</w>
-      <h>480</h>
+      <x>720</x>
+      <y>243</y>
+      <w>27</w>
+      <h>423</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
 m2=1
 layer=-1</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;460.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;450.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>540</x>
-      <y>110</y>
-      <w>50</w>
-      <h>550</h>
+      <x>567</x>
+      <y>243</y>
+      <w>45</w>
+      <h>387</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
 m2=1</panel_attributes>
-    <additional_attributes>30.0;10.0;30.0;500.0;10.0;500.0;10.0;530.0</additional_attributes>
+    <additional_attributes>30.0;10.0;30.0;380.0;10.0;380.0;10.0;410.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>99</x>
+      <y>774</y>
+      <w>540</w>
+      <h>99</h>
+    </coordinates>
+    <panel_attributes>Clases Auxiliares
+halign=left</panel_attributes>
+    <additional_attributes/>
   </element>
 </diagram>
