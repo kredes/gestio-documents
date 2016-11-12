@@ -27,7 +27,6 @@ public class DriverCollection {
             } catch (InterruptedException e) {}
 
             System.out.println(
-                    //FUNCIONAN CASOS 1 y 6!! EL RESTO POR HACER!!
                     "Testeando la clase Collection de la capa de dominio (clase Collection).\n" +
                             "   1. Añadir documento\n" +
                             "   2. Modificar documento\n" +
@@ -61,7 +60,7 @@ public class DriverCollection {
                     ArrayList<String> tags = new ArrayList<>();
                     tags.add(scanner.nextLine());
 
-                    System.out.println("Contenido (terminado por la cadena '~~'): ");
+                    System.out.println("Contenido (terminado por una línea con sólamente la cadena '~~'): ");
                     StringBuilder contenido = new StringBuilder();
                     String aux;
                     while (!(aux = scanner.nextLine()).equals("~~")) {
@@ -100,7 +99,7 @@ public class DriverCollection {
                     ArrayList<String> tags = new ArrayList<>();
                     tags.add(scanner.nextLine());
 
-                    System.out.println("Nuevo contenido (terminado por la cadena '~~'): ");
+                    System.out.println("Nuevo contenido (terminado por una línea con sólamente la cadena '~~'): ");
                     StringBuilder contenido = new StringBuilder();
                     String aux;
                     while (!(aux = scanner.nextLine()).equals("~~")) {
