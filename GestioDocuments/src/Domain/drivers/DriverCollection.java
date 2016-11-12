@@ -35,9 +35,6 @@ public class DriverCollection {
                             "   2. Añadir documento\n" +
                             "   3. Modificar documento\n" +
                             "   4. Eliminar documento\n" +
-                            "   5. Lista Títulos por Autor\n" +
-                            "   6. Lista autores prefijo\n" +
-                            "   7. Contenido Doc, dado Título + Autor\n" +
                             "   0. Volver\n"
             );
 
@@ -55,13 +52,6 @@ public class DriverCollection {
                     for (SortedMap.Entry<Integer, Documento> entry: collection.getCollection().entrySet()) {
                         ids.add(String.valueOf(entry.getKey()));
                     }
-                    System.out.println(
-                            String.format(
-                                    "List<Integer> docIDs = {%s}\n" +
-                                            "Estos son los ID de los documentos que hay en Collection\n",
-                                    String.join(", ", ids))
-                    );
-
                     System.out.print("TopWords (Hiperespacio): ");
                     System.out.println(
                             String.format(
@@ -164,59 +154,6 @@ public class DriverCollection {
                         collection.eliminarDoc(d);
                     } catch (IOException e) {
                         e.printStackTrace();
-                    }
-                    break;
-                // Buscar títulos por Autor
-                case 5:
-                    System.out.print("Autor: ");
-                    String autor = scanner.nextLine();
-                    ArrayList<String> titulos = new ArrayList<>();
-                    if (!collection.getIndexAutor().containsKey(autor)) System.out.println("No existe este autor");
-                    else {
-                        for (Documento d : collection.getIndexAutor().get(autor)) {
-                            titulos.add(d.getTituloString());
-                        }
-
-                        System.out.print("Títulos: ");
-                        System.out.println(
-                                String.format(
-                                        "ArrayList<String> = {%s}\n",
-                                        String.join(", ", titulos))
-                        );
-                    }
-                    break;
-                // Buscar autor por prefijo
-                case 6:
-                    System.out.print("Prefijo: ");
-                    String pref = scanner.nextLine();
-
-                    System.out.print("Autores: ");
-                    System.out.println(
-                            String.format(
-                                    "ArrayList<String> = {%s}\n",
-                                    String.join(", ", collection.consultaAutorPrefijo(pref)))
-                    );
-                    break;
-                // Contenido, dados Título + Autor
-                case 7:
-                    System.out.print("Título: ");
-                    String titulo = scanner.nextLine();
-                    System.out.print("Autor: ");
-                    String autorc = scanner.nextLine();
-
-                    String content = "~~~~";
-
-                    if (!collection.getIndexAutor().containsKey(autorc)) System.out.println("No existe este autor");
-                    else {
-                        for (Documento d : collection.getIndexAutor().get(autorc)) {
-                            if (d.getTituloString().equals(titulo)) {
-                                content = d.getArticuloString();
-                                break;
-                            }
-                        }
-                        if (content.equals("~~~~"))
-                            System.out.println("No existe un Documento con esta combinación Título-Autor");
-                        else System.out.print("Contenido: " + content + "\n");
                     }
                     break;
             }

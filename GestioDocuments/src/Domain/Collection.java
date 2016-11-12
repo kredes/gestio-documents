@@ -175,22 +175,6 @@ public class Collection {
         return nDocs;
     }
 
-    public ArrayList<String> consultaAutorPrefijo(String s){
-        ArrayList<String> ret = new ArrayList<>();
-        boolean captat = false;
-        for (Map.Entry<String,ArrayList<Documento>> e : indexAutor.entrySet()){
-            if (e.getKey().toLowerCase().startsWith(s.toLowerCase())) {
-                ret.add(e.getKey());
-                captat = true;
-            }
-
-            else if (captat) break;
-        }
-
-        return ret;
-    }
-
-
     public int getNumDocumentosEtiquetas(Set<Palabra> etiquetasDoc) throws IOException {
         int N = 0;
         CtrlPersistencia c = ControladorPersistencia.getInstance();
