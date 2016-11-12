@@ -7,11 +7,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.StringJoiner;
 
-/**
- * Created by Alex on 11/11/2016.
- */
 public class ObtencioTopWords {
     Map<String,Integer> m = new HashMap<>();
 

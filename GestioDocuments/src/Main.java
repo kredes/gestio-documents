@@ -37,8 +37,8 @@ public class Main {
                             "   1. Driver Persistencia\n" +
                             "   2. Driver clases Documento, Contenido, Frase y Palabra\n" +
                             "   3. Driver calculadores de similitud (clases CalcSimilitudCoseno, CalcSimilitudFreq, CalcSimilitudTfIdf)\n" +
-                            "   4. Driver clase Colección\n" +
-                            "   5. Driver casos de uso (Controlador dominio)\n" +
+                            "   4. Driver casos de uso 1 (Crear/modificar/eliminar Documento)\n" +
+                            "   5. Driver casos de uso 2 (Controlador dominio)\n" +
                             "   0. Salir\n"
             );
             int seleccion = scanner.nextInt();

@@ -7,7 +7,6 @@ import java.util.*;
 import java.io.*;
 
 public class Collection {
-    // TODO decidir si será singleton
     private ArrayList<String> topWords;
     private SortedMap<Integer, Documento> coleccion;
     private SortedMap<Palabra,Double> nDocsPerWord;                //Valor: Número de documentos en los que aparece (Palabra) sobre

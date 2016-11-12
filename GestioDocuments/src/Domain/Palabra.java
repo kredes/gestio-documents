@@ -8,7 +8,7 @@ public class Palabra implements Comparable<Palabra>{
     /* CONSTRUCTORAS */
 
     /* Constructora de palabra */
-    //Pre: Cierto
+    //Pre: -
     //Post: Se crea un objeto Palabra
     public Palabra(String word) {
         this.word = word;
@@ -18,7 +18,7 @@ public class Palabra implements Comparable<Palabra>{
     /* SETTERS */
 
     /* Modificadora de palabra */
-    //Pre: Existe la palabra del parametro implicito
+    //Pre: -
     //Post: La palabra existente se substituye por el parametro newword
     public void setPalabra(String newword) {
         word = newword;
@@ -28,7 +28,7 @@ public class Palabra implements Comparable<Palabra>{
     /* GETTERS */
 
     /* Consultora de palabra */
-    //Pre: Existe una instancia de palabra
+    //Pre: -
     //Post: Devuelve la palabra
     @Override
     public String toString(){

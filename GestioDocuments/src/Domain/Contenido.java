@@ -10,7 +10,7 @@ public class Contenido {
     /* CONSTRUCTORA */
 
     /* Constructora de Contenido */
-    //Pre: Cierto
+    //Pre: -
     //Post: Se crea un objeto Contenido añadiendo las frases al vector
     public Contenido(String contenido) throws IOException {
         frases = new ArrayList<Frase>();
@@ -27,7 +27,7 @@ public class Contenido {
     /* SETTERS */
 
     /* Añadir una frase a una instancia Contenido */
-    //Pre: El objeto Contenido existe
+    //Pre: -
     //Post: El parametro implicito queda modificado con una frase añadida
     public void addFrase(Frase f) {
         frases.add(f);
@@ -37,19 +37,19 @@ public class Contenido {
     /* GETTERS */
 
     /* Consultora de una frase de una contenido */
-    //Pre: El objeto Contenido existe
+    //Pre: -
     //Post: Se devuelve la frase i del parametro implicito
     public Frase getFrase(int i){
         return frases.get(i);
     }
 
     /* Consultora de las frases de un Contenido */
-    //Pre: El objeto Contenido existe
+    //Pre: -
     //Post: Se devuelve la cantidad de frases que tiene el p.i.
     public int getFrasesLength() { return frases.size(); }
 
     /* Consultora de las palabras de un Contenido */
-    //Pre: El objeto Contenido existe
+    //Pre: -
     //Post: Se devuelve la cantidad de palabras que tiene el p.i.
     public int getWordsLength() {
         int pal = 0;

@@ -4,9 +4,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Set;
 
-/**
- * Created by kredes on 30/10/2016.
- */
 public interface CtrlDominio {
 
     Documento buscarDocumento(String titulo, String autor) throws DocumentoNoExiste;

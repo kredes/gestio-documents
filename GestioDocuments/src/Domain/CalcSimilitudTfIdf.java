@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Map;
 
-// TODO no leer Collection directamente sino que nos la pasen?
 public class CalcSimilitudTfIdf implements CalcSimilitud {
     private static CalcSimilitud instance;
 

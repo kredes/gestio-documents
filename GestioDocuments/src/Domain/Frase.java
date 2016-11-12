@@ -58,8 +58,6 @@ public class Frase {
         }
 
         return stockArray.contains(w);
-
-        //return Collection.getInstance().getStopWords().contains(w.toLowerCase());
     }
 
 
@@ -67,7 +65,7 @@ public class Frase {
     /* SETTERS */
 
     /* Añadir una palabra a una instancia Frase */
-    //Pre: El objeto Frase existe
+    //Pre: -
     //Post: El parametro implicito queda modificado con una palabra añadida
     public void addWord(Palabra w) {
         palabras.add(w);
@@ -77,19 +75,19 @@ public class Frase {
     /* GEETERS */
 
     /* Consultora de una palabra de una frase */
-    //Pre: El objeto Frase existe
+    //Pre: -
     //Post: Se devuelve la palabra i del parametro implicito
     public Palabra getWord(int i){
         return palabras.get(i);
     }
 
     /* Consultora de las palabras de una Frase */
-    //Pre: El objeto Frase existe
+    //Pre: -
     //Post: Se devuelve la cantidad de palabras que tiene el p.i.
     public int getLength() { return palabras.size(); }
 
     /* Consultora de la Frase */
-    //Pre: El objeto Frase existe
+    //Pre: -
     //Post: Retorna la frase.
    public ArrayList<Palabra> getFrase() {
        return palabras;
