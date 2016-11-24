@@ -7,61 +7,109 @@ import java.util.ArrayList;
 import java.util.Queue;
 import java.util.Stack;
 
-class SyntaxErrorException extends Exception {}
-
-class ParenthesisMismatchException extends SyntaxErrorException {}
-
 public class ExpressionParser {
+    // TODO controlar validació expressió
+    // TODO admetre espais
     private Stack<Token> operatorStack;
     private Queue<Token> outputQueue;
 
-    private ArrayList<Token> tokens;
-
-    public ExpressionParser(@NotNull ArrayList<Token> tokens) {
-        operatorStack = new Stack<Token>();
-        outputQueue = new ArrayDeque<Token>();
-        this.tokens = tokens;
+    public ExpressionParser() {
+        operatorStack = new Stack<>();
+        outputQueue = new ArrayDeque<>();
     }
 
-    private Queue<Token> parse() throws SyntaxErrorException {
+    public static ArrayList<String> parseSetOrSequence(Token t) {
+        ArrayList<String> words = new ArrayList<>();
+        int i = 1;
+        String value = t.toString();
+
+        while (i < value.length()) {
+            int inici = i;
+            while (value.charAt(i) != ' ' && i < value.length()) ++i;
+            words.add(value.substring(inici, i));
+
+            ++i;
+        }
+        return words;
+    }
+
+    public ArrayList<Token> generaTokens(String expr) {
+        ArrayList<Token> tokens = new ArrayList<>();
+
+        int i = 0;
+        while (i < expr.length()) {
+            Character c = expr.charAt(i);
+
+            if (c == '(') {
+                tokens.add(new Token(TToken.leftPatenth, "("));
+                ++i;
+            } else if (c == ')') {
+                tokens.add(new Token(TToken.rightParenth, ")"));
+                ++i;
+            } else if (c == '!') {
+                tokens.add(new Token(TToken.prefixOperator, "!"));
+                ++i;
+            } else if (c == '|') {
+                tokens.add(new Token(TToken.infixOperator, "|"));
+                ++i;
+            } else if (c == '&') {
+                tokens.add(new Token(TToken.infixOperator, "&"));
+                ++i;
+            } else if (c == '{') {
+                int inici = i;
+                while (expr.charAt(i) != '}') ++i;
+                tokens.add(new Token(TToken.wordSet, expr.substring(inici, i+1)));
+                ++i;
+            } else if (c == '"') {
+                int inici = i;
+                ++i;
+                while (expr.charAt(i) != '"') ++i;
+                tokens.add(new Token(TToken.wordSequence, expr.substring(inici, i+1)));
+                ++i;
+            } else if (c == ' ') {
+                ++i;
+            } else { // word
+                int inici = i;
+                while (i < expr.length() && Character.isLetterOrDigit(expr.charAt(i)))
+                    ++i;
+                tokens.add(new Token(TToken.wordSequence, expr.substring(inici, i)));
+            }
+        }
+
+        return tokens;
+    }
+
+    public Queue<Token> toRPN(ArrayList<Token> tokens) throws SyntaxErrorException {
             for (Token t : tokens) {
                 if (t.isWord()) {
                     outputQueue.add(t);
                 } else if (t.isWordSet()) {
-                    // TODO
+                    outputQueue.add(t);
                 } else if (t.isWordSequence()) {
-                    // TODO
+                    outputQueue.add(t);
                 } else if (t.isPrefixOperator()) {
                     operatorStack.add(t);
                 } else if (t.isInfixOperator()) {
                     while (!operatorStack.empty() &&
                             t.getPrecedence() <= operatorStack.peek().getPrecedence()) {
-                        outputQueue.add(operatorStack.peek());
-                        operatorStack.pop();
+                        outputQueue.add(operatorStack.pop());
                     }
                     operatorStack.add(t);
                 } else if (t.isLeftParenth()) {
                     operatorStack.add(t);
                 } else if (t.isRightParenth()) {
-                    while (!operatorStack.empty() && operatorStack.peek().isLeftParenth()) {
-                        outputQueue.add(operatorStack.peek());
-                        operatorStack.pop();
+                    while (!operatorStack.empty() && !operatorStack.peek().isLeftParenth()) {
+                        outputQueue.add(operatorStack.pop());
                     }
                     if (operatorStack.empty())
                         throw new ParenthesisMismatchException();
 
                     operatorStack.pop();
 
-                    if (operatorStack.empty()) {
-                        throw new ParenthesisMismatchException();
-                    } else {
-                        if (operatorStack.peek().isPrefixOperator()) {
-                            outputQueue.add(operatorStack.peek());
-                            operatorStack.pop();
-                        }
+                    if (!operatorStack.empty() && operatorStack.peek().isPrefixOperator()) {
+                        outputQueue.add(operatorStack.pop());
                     }
-                }
-                else {
+                } else {
                     throw new SyntaxErrorException();
                 }
             }
@@ -72,8 +120,7 @@ public class ExpressionParser {
                 if (t.isLeftParenth() || t.isRightParenth())
                     throw new ParenthesisMismatchException();
 
-                outputQueue.add(operatorStack.peek());
-                operatorStack.pop();
+                outputQueue.add(operatorStack.pop());
             }
 
         return outputQueue;
@@ -95,72 +142,5 @@ public class ExpressionParser {
     private ArrayList<String> parseWordSequence(@NotNull Token t) {
         // TODO implement method
         return null;
-    }
-
-}
-
-class Token {
-
-    private enum TToken {
-        word,
-        wordSet,
-        wordSequence,
-        prefixOperator,
-        infixOperator,
-        leftPatenth,
-        rightParenth
-    }
-
-    private String s;
-    private final TToken tokenType;
-
-    public Token(@NotNull String s, @NotNull TToken tokenType) {
-        this.s = s;
-        this.tokenType = tokenType;
-    }
-
-    public String toString() {
-        return s;
-    }
-
-    /**
-     * Pre: this.isInfixOperator()
-     * @return an integer valid to compare 2 tokens by its precedence
-     */
-    public int getPrecedence() {
-        switch (s) {
-            case "!": return 3;
-            case "&": return 2;
-            case "|": return 1;
-            default: return 0; // never reaches default if precondition is true
-        }
-    }
-
-    public boolean isPrefixOperator() {
-        return tokenType == TToken.prefixOperator;
-    }
-
-    public boolean isInfixOperator() {
-        return tokenType == TToken.infixOperator;
-    }
-
-    public boolean isLeftParenth() {
-        return tokenType == TToken.leftPatenth;
-    }
-
-    public boolean isRightParenth() {
-        return tokenType == TToken.rightParenth;
-    }
-
-    public boolean isWord() {
-        return tokenType == TToken.word;
-    }
-
-    public boolean isWordSet() {
-        return tokenType == TToken.wordSet;
-    }
-
-    public boolean isWordSequence() {
-        return tokenType == TToken.wordSequence;
     }
 }
