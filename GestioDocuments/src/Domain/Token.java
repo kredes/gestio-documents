@@ -35,6 +35,9 @@ public class Token {
                 return 0; // never reaches default if precondition is true
         }
     }
+    public boolean isOperator() {
+        return isInfixOperator() || isPrefixOperator();
+    }
 
     public boolean isPrefixOperator() {
         return tokenType == TToken.prefixOperator;
