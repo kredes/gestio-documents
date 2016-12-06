@@ -189,4 +189,15 @@ public class Collection {
         return N;
     }
 
+    public Set<Documento> queryContainsWord(String s) {
+        return null;
+    }
+
+    public Set<Documento> queryContainsWordSequence(ArrayList<String> wordSeq2Query) {
+        return null;
+    }
+
+    public Set<Documento> queryContainsWordSet(ArrayList<String> words2Query) {
+        return null;
+    }
 }

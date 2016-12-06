@@ -1,36 +1,15 @@
 package Domain;
 
-import com.sun.istack.internal.NotNull;
-
+import java.io.IOException;
 import java.util.*;
 
 public class Expresion {
     // TODO controlar validació expressió
-    // TODO admetre espais
-    private Stack<Token> operatorStack;
-    private List<Token> output;
 
     public Expresion() {
-        operatorStack = new Stack<>();
-        output = new ArrayList<>();
     }
 
-    public static ArrayList<String> parseSetOrSequence(Token t) {
-        ArrayList<String> words = new ArrayList<>();
-        int i = 1;
-        String value = t.toString();
-
-        while (i < value.length()) {
-            int inici = i;
-            while (value.charAt(i) != ' ' && i < value.length()) ++i;
-            words.add(value.substring(inici, i));
-
-            ++i;
-        }
-        return words;
-    }
-
-    public ArrayList<Token> generaTokens(String expr) {
+    public ArrayList<Token> generateTokens(String expr) {
         ArrayList<Token> tokens = new ArrayList<>();
 
         int i = 0;
@@ -77,6 +56,8 @@ public class Expresion {
     }
 
     public List<Token> toPostOrder(List<Token> tokens) throws SyntaxErrorException {
+        Stack<Token> operatorStack = new Stack<>();
+        ArrayList<Token> output = new ArrayList<>();
             for (Token t : tokens) {
                 if (t.isWord()) {
                     output.add(t);
@@ -167,6 +148,79 @@ public class Expresion {
 
         return node;
     }
+
+    public Set<Documento> eval(Node tree) throws IOException {
+        ExpressionEvaluator evaluator = new ExpressionEvaluator();
+        return evaluator.eval(tree);
+    }
+
+    private static class ExpressionEvaluator {
+        private Collection collection;
+        private int totalDocNum;
+        public ExpressionEvaluator() throws IOException {
+            collection = Collection.getInstance();
+            totalDocNum = collection.getNDocs(); // TODO retorna num total docs?
+        }
+
+        private static ArrayList<String> parseSetOrSequence(Token t) {
+            ArrayList<String> words = new ArrayList<>();
+            int i = 1;
+            String value = t.toString();
+
+            while (i < value.length()) {
+                int inici = i;
+                while (value.charAt(i) != ' ' && i < value.length()) ++i;
+                words.add(value.substring(inici, i));
+
+                ++i;
+            }
+            return words;
+        }
+
+        public Set<Documento> eval(Node tree) {
+            Set<Documento> result;
+            Token t = tree.getToken();
+
+            if (t.isWord()) {
+                result = collection.queryContainsWord(t.toString());
+            }
+            else if (t.isWordSequence()) {
+                ArrayList<String> wordSeq2Query = parseSetOrSequence(t);
+                result = collection.queryContainsWordSequence(wordSeq2Query);
+            }
+            else if (t.isWordSet()) {
+                ArrayList<String> words2Query = parseSetOrSequence(t);
+                result = collection.queryContainsWordSet(words2Query);
+            }
+            else { // t.isOperator()
+                String s = t.toString();
+                result = eval(tree.getLeftChild());
+                if (s.equals("&")) {
+                    if (!result.isEmpty()) {
+                        Set<Documento> resultR = eval(tree.getRightChild());
+                        // intersection -> result
+                    }
+                } else if (s.equals("|")) {
+                    if (result.size() != totalDocNum) {
+                        Set<Documento> resultR = eval(tree.getRightChild());
+                        // union -> result
+                    }
+                }
+                else { // !
+                    // posar a result la resta del conjunt de tots els documents menys els de result
+                }
+
+            }
+
+            return result;
+        }
+
+    }
+
+
+
+
+
 
 
 }
