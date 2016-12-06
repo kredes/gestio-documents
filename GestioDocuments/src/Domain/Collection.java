@@ -97,7 +97,7 @@ public class Collection {
 
     //los documentos con la Etiqueta solicitada
     private void  addToFreq(Documento d){
-        Set<Palabra> palabrasDoc = new HashSet<Palabra>();        //Contiene todas las palabras, sin repetir, de UN documento
+        Set<Palabra> palabrasDoc = new HashSet<>();        //Contiene todas las palabras, sin repetir, de UN documento
 
         Frase fTitle = d.getTitulo();
         ArrayList<Palabra> palabrasTitle = fTitle.getFrase();
@@ -126,8 +126,6 @@ public class Collection {
             }
         }
     }
-
-
 
     public static Collection getInstance() throws IOException {
         if (instance == null) {
@@ -189,15 +187,23 @@ public class Collection {
         return N;
     }
 
-    public Set<Documento> queryContainsWord(String s) {
-        return null;
-    }
+    public Set<Documento> queryContainsWordOrSequence(String s) {
+        Set<Documento> ret = new HashSet<>();
+        for (Documento d : coleccion.values()){
+            if (d.getTituloString().toLowerCase().contains(s.toLowerCase()))
+                ret.add(d);
 
-    public Set<Documento> queryContainsWordSequence(ArrayList<String> wordSeq2Query) {
-        return null;
+            else if (d.getArticuloString().toLowerCase().contains(s.toLowerCase()))
+                ret.add(d);
+        }
+        return ret;
     }
 
     public Set<Documento> queryContainsWordSet(ArrayList<String> words2Query) {
+        return null;
+    }
+
+    public Set<Documento> queryAllDocs() {
         return null;
     }
 }
