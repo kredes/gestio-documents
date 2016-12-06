@@ -16,6 +16,9 @@ public class Main {
 
     public static void main(String[] args) throws Exception {
         scanner = new Scanner(System.in);
+
+        DriverExpresion.run();
+        /*
         driverCasosUso = new DriverCasosUso();
         driverCollection = new DriverCollection();
         driverDoc = new DriverDocumentoContenidoFrasePalabra();
@@ -69,6 +72,8 @@ public class Main {
                     break;
             }
         }
+
+        */
 
     }
 
