@@ -209,7 +209,7 @@ public class Collection {
                     b = false;
             }
 
-            if (b == true) ret.add(d);
+            if (b) ret.add(d);
         }
         return ret;
     }
