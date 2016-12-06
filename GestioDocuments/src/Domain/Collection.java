@@ -204,9 +204,10 @@ public class Collection {
         for (Documento d : coleccion.values()){
             boolean b = true;
             for (String s : words2Query){
-                if (!d.getTituloString().toLowerCase().contains(s.toLowerCase())
-                        && !d.getArticuloString().toLowerCase().contains(s.toLowerCase()))
+                if (!d.getTituloString().toLowerCase().contains(s.toLowerCase()) && !d.getArticuloString().toLowerCase().contains(s.toLowerCase())) {
                     b = false;
+                    break;
+                }
             }
 
             if (b) ret.add(d);
