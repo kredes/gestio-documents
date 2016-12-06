@@ -200,10 +200,25 @@ public class Collection {
     }
 
     public Set<Documento> queryContainsWordSet(ArrayList<String> words2Query) {
-        return null;
+        Set<Documento> ret = new HashSet<>();
+        for (Documento d : coleccion.values()){
+            boolean b = true;
+            for (String s : words2Query){
+                if (!d.getTituloString().toLowerCase().contains(s.toLowerCase())
+                        && !d.getArticuloString().toLowerCase().contains(s.toLowerCase()))
+                    b = false;
+            }
+
+            if (b == true) ret.add(d);
+        }
+        return ret;
     }
 
     public Set<Documento> queryAllDocs() {
-        return null;
+        Set<Documento> ret = new HashSet<>();
+        for (Documento d : coleccion.values()){
+            ret.add(d);
+        }
+        return ret;
     }
 }
