@@ -1,0 +1,705 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>9</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>432</x>
+      <y>369</y>
+      <w>144</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>style=autoresize
+fontsize=10
+Contenido
+--
+frases: ArrayList&lt;Frase&gt;
+--
+Frase(fraseString: String)
+getFrasesLength(): integer
+getWordsLength(): integer
+getContenido(): ArrayList&lt;Frase&gt;
+addWord(w: Palabra)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>243</x>
+      <y>369</y>
+      <w>135</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>style=autoresize
+fontsize=10
+Frase
+--
+palabras: ArrayList&lt;Palabra&gt;
+--
+Frase(fraseString: String)
+stopWord(w: String): boolean
+getWord(i: integer): Palabra
+getLength(): integer
+getFrase(): ArrayList&lt;Palabra&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>99</x>
+      <y>414</y>
+      <w>81</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>style=autoresize
+fontsize=10
+Palabra
+--
+word: String
+--
+toString(): String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>603</x>
+      <y>333</y>
+      <w>477</w>
+      <h>243</h>
+    </coordinates>
+    <panel_attributes>style=autoresize
+fontsize=10
+Documento
+--
+titulo : Frase
+tituloString: String 
+idDocumento: integer
+autores: ArrayList&lt;Frase&gt;
+autoresString: ArrayList&lt;String&gt;
+content: Contenido
+contentString: String 
+etiquetas: Set&lt;Palabra&gt; 
+etiquetasString: ArrayList&lt;String&gt;
+termFreq: SortedMap&lt;Palabra,Double&gt;
+--
+setTitulo (titulo: String)
+setContent (content: String)
+setEtiquetas (etiquetas: ArrayList&lt;String&gt;)
+setAutores (autores: ArrayList&lt;String&gt;)
+setFreqs (WordsCol: SortedMap&lt;Palabra,Double&gt; , WordsConj: SortedMap&lt;Palabra,SortedMap&lt;Palabra,Double&gt;&gt;)
+getTituloString (): String
+getEtiquetasStrings (): ArrayList&lt;String&gt;
+getArticuloString(): String
+getNumeroPalabras(): double</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>369</x>
+      <y>441</y>
+      <w>81</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;&gt;&gt;
+m1=*
+m2=1</panel_attributes>
+    <additional_attributes>10.0;10.0;70.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>171</x>
+      <y>441</y>
+      <w>99</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m1=1
+m2=1..*</panel_attributes>
+    <additional_attributes>83.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>666</x>
+      <y>657</y>
+      <w>297</w>
+      <h>207</h>
+    </coordinates>
+    <panel_attributes>style=autoresize
+fontsize=10
+Coleccion
+--
+topWords: ArrayList&lt;String&gt;
+coleccion: SortedMap&lt;Integer, Documento&gt;
+nDocsPerWord: SortedMap&lt;Palabra,Double&gt;
+nDocsPerWordTag: SortedMap&lt;Palabra, SortedMap&lt;Palabra,Double&gt;&gt;
+nDocs: Integer
+indexTitulo: SortedMap&lt;String, ArrayList&lt;Documento&gt;&gt;
+indexAutor: SortedMap&lt;String, ArrayList&lt;Documento&gt;&gt;
+indexID: SortedMap&lt;String, Documento&gt;
+stopWords: Set&lt;String&gt;
+--
+addToFreq(d: Documento)
+afegirDoc(d: Documento)
+modificarDoc(idModificado: Integer, docNuevo: Documento)
+eliminarDoc(d: Documento)
+consultaAutorPrefijo(s: String): ArrayList&lt;String&gt;
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>270</x>
+      <y>531</y>
+      <w>72</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>style=autoresize
+fontsize=10
+Expresion
+--
+formaStr: String
+--
+validar()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1332</x>
+      <y>342</y>
+      <w>99</w>
+      <h>126</h>
+    </coordinates>
+    <panel_attributes>style=autoresize
+fontsize=10
+/&lt;&lt;interface&gt;&gt;/
+CtrlPersistencia
+--
+getTopWords()
+getAllDocumentos()
+getNumDocumentos()
+setNumDocumentos()
+getDocumento()
+guardaDocumento()
+getStopWordsSet()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>1260</x>
+      <y>153</y>
+      <w>189</w>
+      <h>126</h>
+    </coordinates>
+    <panel_attributes>Capa Datos
+--
+bg=none
+layer=-1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1278</x>
+      <y>207</y>
+      <w>153</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>style=autoresize
+/&lt;&lt;singleton&gt;&gt;/
+ControladorPersistencia</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1350</x>
+      <y>270</y>
+      <w>45</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>30.0;80.0;10.0;13.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>81</x>
+      <y>153</y>
+      <w>1170</w>
+      <h>126</h>
+    </coordinates>
+    <panel_attributes>Capa Presentación
+--
+bg=none
+layer=-1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1098</x>
+      <y>486</y>
+      <w>333</w>
+      <h>126</h>
+    </coordinates>
+    <panel_attributes>style=autoresize
+fontsize=10
+/&lt;&lt;interface&gt;&gt;/
+CtrlDominio
+--
+
+--
+buscarDocumento(titulo: String, autor: String): Documento
+buscarExpresion(expresion: String) : Set&lt;Documento&gt;
+buscarParecidos(titulo: String, autor: String, k: Integer) : ArrayList&lt;Documento&gt;
+librosAutor(autor: String): ArrayList&lt;String&gt;
+autoresPorPrefijo(prefijo: String): ArrayList&lt;String&gt;
+buscarRelevantes(query: String, k: Integer) : ArrayList&lt;Documento&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1044</x>
+      <y>756</y>
+      <w>153</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>style=autoresize
+fontsize=10
+/&lt;&lt;interface&gt;&gt;/
+IAplicadorExpresion
+--
+
+--
+aplicar(e: Expresion, d: Documento)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>414</x>
+      <y>549</y>
+      <w>45</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>style=autoresize
+fontsize=10
+Query</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>333</x>
+      <y>540</y>
+      <w>99</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;
+</panel_attributes>
+    <additional_attributes>90.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>270</x>
+      <y>567</y>
+      <w>180</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>lt=-
+</panel_attributes>
+    <additional_attributes>10.0;100.0;70.0;100.0;70.0;40.0;180.0;40.0;180.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>117</x>
+      <y>621</y>
+      <w>162</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>style=autoresize
+fontsize=10
+/&lt;&lt;interface&gt;&gt;/
+ICalculadorRelevancia
+--
+
+--
+relevancia(d1: Documento, q: Query)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>351</x>
+      <y>621</y>
+      <w>243</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>style=autoresize
+fontsize=10
+/&lt;&lt;interface&gt;&gt;/
+ICalculadorSimilitud
+--
+
+--
+calculaSimilitud(d1: Documento, d2: Documento) : Double</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>567</x>
+      <y>441</y>
+      <w>54</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m2=1</panel_attributes>
+    <additional_attributes>10.0;10.0;40.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>108</x>
+      <y>522</y>
+      <w>81</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>style=autoresize
+fontsize=10
+Nodo
+--
+previo: Nodo
+contenido: String
+siguiente: Nodo</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>180</x>
+      <y>540</y>
+      <w>108</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1
+Raíz
+</panel_attributes>
+    <additional_attributes>100.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>207</x>
+      <y>720</y>
+      <w>99</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>style=autoresize
+fontsize=10
+CalcRelevanciaTipo1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>189</x>
+      <y>702</y>
+      <w>81</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;70.0;10.0;70.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>315</x>
+      <y>720</y>
+      <w>108</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>style=autoresize
+fontsize=10
+CalcSimilitudCoseno
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>99</x>
+      <y>720</y>
+      <w>99</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>style=autoresize
+fontsize=10
+CalcRelevanciaTipo2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>135</x>
+      <y>684</y>
+      <w>81</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>70.0;10.0;70.0;30.0;10.0;30.0;10.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>540</x>
+      <y>729</y>
+      <w>99</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>style=autoresize
+fontsize=10
+CalcSimilitudTFIDF</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>81</x>
+      <y>297</y>
+      <w>1368</w>
+      <h>603</h>
+    </coordinates>
+    <panel_attributes>Capa Dominio
+--
+bg=none
+layer=-1
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1071</x>
+      <y>675</y>
+      <w>99</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>style=autoresize
+fontsize=10
+/&lt;&lt;singleton&gt;&gt;/
+AplicadorExpresion</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1107</x>
+      <y>702</y>
+      <w>27</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;60.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1233</x>
+      <y>675</y>
+      <w>72</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>style=autoresize
+fontsize=10
+/&lt;&lt;singleton&gt;&gt;/
+CtrlDominio</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>432</x>
+      <y>720</y>
+      <w>90</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>style=autoresize
+fontsize=10
+CalcSimilitudFreq
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>108</x>
+      <y>810</y>
+      <w>378</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>style=autoresize
+fontsize=10
+Vector
+--
+getNormalizedArray(tfD: SortedMap&lt;Palabra, Double&gt;, numPal: Double): ArrayList&lt;Double&gt;
+cosinus(a1: ArrayList&lt;Double&gt;, a2: ArrayList&lt;Double&gt;): Double
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>513</x>
+      <y>801</y>
+      <w>108</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>style=autoresize
+fontsize=10
+MyPair
+--
+key: K
+value: V
+--
+MyPair(key: K, value: V)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>360</x>
+      <y>684</y>
+      <w>135</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>130.0;10.0;130.0;30.0;10.0;30.0;10.0;39.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>468</x>
+      <y>702</y>
+      <w>27</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>468</x>
+      <y>702</y>
+      <w>135</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;130.0;10.0;130.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>792</x>
+      <y>567</y>
+      <w>27</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m1=1
+m2=*</panel_attributes>
+    <additional_attributes>10.0;100.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1260</x>
+      <y>603</y>
+      <w>36</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>14.0;10.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>918</x>
+      <y>189</y>
+      <w>126</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>style=autoresize
+MainViewController
+--
+
+--
+start()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1071</x>
+      <y>189</y>
+      <w>153</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>style=autoresize
+DocumentViewController
+--
+
+--
+run()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>99</x>
+      <y>783</y>
+      <w>540</w>
+      <h>99</h>
+    </coordinates>
+    <panel_attributes>Clases Auxiliares
+halign=left</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1143</x>
+      <y>252</y>
+      <w>108</w>
+      <h>252</h>
+    </coordinates>
+    <panel_attributes>lt=-
+</panel_attributes>
+    <additional_attributes>100.0;260.0;100.0;50.0;10.0;50.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>963</x>
+      <y>252</y>
+      <w>180</w>
+      <h>252</h>
+    </coordinates>
+    <panel_attributes>lt=-
+</panel_attributes>
+    <additional_attributes>180.0;260.0;180.0;50.0;10.0;50.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>
