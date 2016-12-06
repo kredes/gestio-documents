@@ -162,8 +162,8 @@ public class Expresion {
             totalDocNum = collection.getNDocs(); // TODO retorna num total docs?
         }
 
-        private static ArrayList<String> parseSetOrSequence(Token t) {
-            ArrayList<String> words = new ArrayList<>();
+        private static Set<String> parseSet(Token t) {
+            Set<String> words = new HashSet<>();
             int i = 1;
             String value = t.toString();
 
@@ -182,14 +182,14 @@ public class Expresion {
             Token t = tree.getToken();
 
             if (t.isWord()) {
-                result = collection.queryContainsWord(t.toString());
+                result = collection.queryContainsWordOrSequence(t.toString());
             }
             else if (t.isWordSequence()) {
-                ArrayList<String> wordSeq2Query = parseSetOrSequence(t);
-                result = collection.queryContainsWordSequence(wordSeq2Query);
+                String s = t.toString();
+                result = collection.queryContainsWordOrSequence(s.substring(1, s.length()-1));
             }
             else if (t.isWordSet()) {
-                ArrayList<String> words2Query = parseSetOrSequence(t);
+                Set<String> words2Query = parseSet(t);
                 result = collection.queryContainsWordSet(words2Query);
             }
             else { // t.isOperator()

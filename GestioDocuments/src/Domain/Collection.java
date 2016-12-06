@@ -199,7 +199,7 @@ public class Collection {
         return ret;
     }
 
-    public Set<Documento> queryContainsWordSet(ArrayList<String> words2Query) {
+    public Set<Documento> queryContainsWordSet(Set<String> words2Query) {
         Set<Documento> ret = new HashSet<>();
         for (Documento d : coleccion.values()){
             boolean b = true;
