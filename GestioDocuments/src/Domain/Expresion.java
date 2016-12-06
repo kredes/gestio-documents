@@ -198,29 +198,26 @@ public class Expresion {
                 if (s.equals("&")) {
                     if (!result.isEmpty()) {
                         Set<Documento> resultR = eval(tree.getRightChild());
-                        // intersection -> result
+                        // intersection(result,resultR) -> result
+                        result.retainAll(resultR);
                     }
                 } else if (s.equals("|")) {
                     if (result.size() != totalDocNum) {
                         Set<Documento> resultR = eval(tree.getRightChild());
-                        // union -> result
+                        // union(result,resultR) -> result
+                        result.addAll(resultR);
                     }
                 }
                 else { // !
-                    // posar a result la resta del conjunt de tots els documents menys els de result
+                    Set<Documento> toExclude = result;
+                    result = collection.queryAllDocs();
+                    result.removeAll(toExclude);
                 }
-
             }
 
             return result;
         }
 
     }
-
-
-
-
-
-
 
 }
