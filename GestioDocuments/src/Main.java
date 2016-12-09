@@ -1,3 +1,4 @@
+import Domain.Collection;
 import Domain.drivers.*;
 
 import java.util.Scanner;
@@ -16,8 +17,8 @@ public class Main {
     public static void main(String[] args) throws Exception {
         scanner = new Scanner(System.in);
 
-        DriverExpresion.run();
-        /*
+
+
         driverCasosUso = new DriverCasosUso();
         driverCollection = new DriverCollection();
         driverDoc = new DriverDocumentoContenidoFrasePalabra();
@@ -29,6 +30,9 @@ public class Main {
         Collection.getInstance();
         System.out.println("hecho.");
 
+        DriverExpresion.run();
+
+        /*
         while (true) {
             try {
                 Thread.sleep(500);

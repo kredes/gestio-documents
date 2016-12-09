@@ -163,17 +163,29 @@ public class Expresion {
         }
 
         private static Set<String> parseSet(Token t) {
-            Set<String> words = new HashSet<>();
-            int i = 1;
+            Set<String> words; // = new HashSet<>();
+
             String value = t.toString();
 
-            while (i < value.length()) {
-                int inici = i;
-                while (value.charAt(i) != ' ' && i < value.length()) ++i;
-                words.add(value.substring(inici, i));
+            // Mucho más simple
+            words = new HashSet(Arrays.asList(value.substring(1, value.length()-1).split(" ")));
 
-                ++i;
-            }
+            /*
+            int i = 1;
+            while (i < value.length()) {
+                // Para que no quede en un bucle infinito
+                if (value.charAt(i) == ' ') ++i;
+                else if (value.charAt(i) == '}') break;
+
+                int inici = i;
+                while (i < value.length()-1 && value.charAt(i) != ' ') {
+                    ++i;
+                }
+
+                String word = value.substring(inici, i);
+                words.add(word);
+            }*/
+
             return words;
         }
 
