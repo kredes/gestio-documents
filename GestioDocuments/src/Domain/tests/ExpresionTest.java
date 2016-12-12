@@ -8,7 +8,6 @@ import org.junit.Test;
 public class ExpresionTest {
     @Test
     public void generateTokens() throws Exception {
-
     }
 
     @Test
