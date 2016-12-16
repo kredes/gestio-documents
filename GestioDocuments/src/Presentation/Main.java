@@ -30,12 +30,8 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) {
+        stage = primaryStage;
         changeToDocumentView();
-        scene = new Scene(root);
-
-        primaryStage.setTitle("GestioDocuments v0.0.0");
-        primaryStage.setScene(scene);
-        primaryStage.show();
     }
 
     public void changeToMainView() {
@@ -43,6 +39,10 @@ public class Main extends Application {
             MainViewController controller = changeScene("main_view.fxml");
             controller.setApp(this);
             controller.setUpView();
+
+            stage.setTitle("GestioDocuments v0.0.0 - Main View");
+            stage.setScene(scene);
+            stage.show();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -53,6 +53,10 @@ public class Main extends Application {
             DocumentViewController controller = changeScene("document_view.fxml");
             controller.setApp(this);
             controller.setUpView();
+
+            stage.setTitle("GestioDocuments - Document View [No editable]");
+            stage.setScene(scene);
+            stage.show();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -60,7 +64,6 @@ public class Main extends Application {
 
     private <T> T changeScene(String fxml) throws Exception {
         FXMLLoader loader = new FXMLLoader();
-        //InputStream in = Main.class.getResourceAsStream(fxml);
         loader.setBuilderFactory(new JavaFXBuilderFactory());
         loader.setLocation(Main.class.getResource(fxml));
 
@@ -71,12 +74,9 @@ public class Main extends Application {
         catch (Exception e) {
             e.printStackTrace();
         }
-        finally {
-            //if (in != null) in.close();
-        }
 
         root = newRoot;
-        if (scene != null) scene.setRoot(root);
+        scene = new Scene(root);
 
         return (T) loader.getController();
     }
