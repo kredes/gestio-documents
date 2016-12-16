@@ -30,9 +30,6 @@ public class Collection {
         ControladorPersistencia c = ControladorPersistencia.getInstance();
         topWords = c.getTopWords();
         stopWords = c.getStopWordsSet();
-        nDocs = c.getIdCounter();
-
-
 
 
         for (String s : topWords){

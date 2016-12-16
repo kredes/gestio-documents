@@ -1,5 +1,7 @@
 package Domain;
 
+import Persistence.ControladorPersistencia;
+
 import java.io.IOException;
 import java.util.*;
 
@@ -173,7 +175,7 @@ public class Expresion {
         private int totalDocNum;
         public ExpressionEvaluator() throws IOException {
             collection = Collection.getInstance();
-            totalDocNum = collection.getNDocs();
+            totalDocNum = ControladorPersistencia.getInstance().getNumDocumentos();
         }
 
         private static Set<String> parseSet(Token t) {
@@ -182,7 +184,7 @@ public class Expresion {
             String value = t.toString();
 
             // Mucho más simple
-            words = new HashSet(
+            words = new HashSet<>(
                     Arrays.asList(
                             value.substring(1, value.length()-1).split(" ")
                     )

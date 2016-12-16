@@ -4,11 +4,6 @@ public class Token {
     private TToken tokenType;
     private String value;
 
-    // deixa value a null
-    public Token(TToken tipus) {
-        this.tokenType = tipus;
-    }
-
     public Token(TToken tipus, String value) {
         this.tokenType = tipus;
         this.value = value;
@@ -20,7 +15,7 @@ public class Token {
     }
 
     /**
-     * Pre: this.isInfixOperator()
+     * Pre: this.isOperator()
      * @return an integer valid to compare 2 tokens by its precedence
      */
     public int getPrecedence() {
