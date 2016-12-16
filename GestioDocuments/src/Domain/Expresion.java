@@ -9,6 +9,14 @@ public class Expresion {
     public Expresion() {
     }
 
+    public static Set<Documento> validaYEvalua(String expr) throws SyntaxErrorException, IOException {
+        Expresion expresion = new Expresion();
+        ArrayList<Token> tokens = expresion.generateTokens(expr);
+        List<Token> postOrder = expresion.toPostOrder(tokens);
+        Node treeRoot = expresion.generateTree(postOrder);
+        return expresion.eval(treeRoot);
+    }
+
     public ArrayList<Token> generateTokens(String expr) {
         ArrayList<Token> tokens = new ArrayList<>();
 
@@ -104,7 +112,7 @@ public class Expresion {
         return output;
     }
 
-    public Node generateTree(List<Token> postOrder) {
+    public Node generateTree(List<Token> postOrder) throws SyntaxErrorException {
         List<Node> nodes = new ArrayList<>();
         for (Token t : postOrder) {
             nodes.add(new Node(t));
@@ -122,6 +130,8 @@ public class Expresion {
                 Token t = node.getToken();
                 if (t.isInfixOperator()) {
                     // agafem 2 de la list
+                    if (i < 2) throw new SyntaxErrorException();
+
                     Node rChild = nodes.get(i - 1);
                     Node lChild = nodes.get(i - 2);
                     node.setRightChild(rChild);
@@ -132,6 +142,8 @@ public class Expresion {
                     i -= 2;
                 } else { // t.isPrefixOperator()
                     // només 1 de la list
+                    if (i < 1) throw new SyntaxErrorException();
+
                     Node onlyChild = nodes.get(i - 1);
                     node.setLeftChild(onlyChild);
 
@@ -144,7 +156,9 @@ public class Expresion {
             ++i;
         }
 
-        // TODO comprovar casos extrems
+        if (nodes.size() > 1) {
+            throw new SyntaxErrorException();
+        }
 
         return node;
     }
@@ -159,7 +173,7 @@ public class Expresion {
         private int totalDocNum;
         public ExpressionEvaluator() throws IOException {
             collection = Collection.getInstance();
-            totalDocNum = collection.getNDocs(); // TODO retorna num total docs?
+            totalDocNum = collection.getNDocs();
         }
 
         private static Set<String> parseSet(Token t) {
@@ -168,7 +182,11 @@ public class Expresion {
             String value = t.toString();
 
             // Mucho más simple
-            words = new HashSet(Arrays.asList(value.substring(1, value.length()-1).split(" ")));
+            words = new HashSet(
+                    Arrays.asList(
+                            value.substring(1, value.length()-1).split(" ")
+                    )
+            );
 
             /*
             int i = 1;
