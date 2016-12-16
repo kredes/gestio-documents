@@ -143,6 +143,27 @@ public class ControladorDominio implements CtrlDominio {
     }
 
     @Override
+    public ArrayList<MyPair<Documento, Double>> buscarParecidos(Documento d, int k, CalcSimilitud cs) throws DocumentoNoExiste, IOException {
+        Map<String, Documento> docs = collection.getIndexID();
+
+        ArrayList<MyPair<Documento, Double>> result = new ArrayList<>();
+        for (Documento doc : docs.values()) {
+            Double similitud = cs.calculaSimilitud(doc, d);
+
+            result.add(new MyPair<>(doc, similitud*100));
+        }
+
+        result.sort(new Comparator<MyPair<Documento, Double>>() {
+            @Override
+            public int compare(MyPair<Documento, Double> o1, MyPair<Documento, Double> o2) {
+                return o2.getValue().compareTo(o1.getValue());
+            }
+        });
+        return new ArrayList<>(result.subList(0, k+1));    // El primero NO es él mismo (es ficiticio y no está en la colección)
+    }
+
+
+    @Override
     public Set<Documento> buscarExpresion(String expresion) {
         return null;
     }
