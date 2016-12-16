@@ -54,7 +54,6 @@ public class MainViewController extends ViewController {
                 items.add(label);
             }
             listaResultados.setItems(items);
-            ObservableList s = listaResultados.getItems();
         }
     }
 
@@ -65,9 +64,9 @@ public class MainViewController extends ViewController {
         ContextMenu contextMenu = new ContextMenu();
         MenuItem verDoc = new MenuItem("Ver documento");
         Menu buscarSimilares = new Menu("Buscar similares");
-        MenuItem similaresFreq = new Menu("Frecuencia");
-        MenuItem similaresCoseno = new Menu("Coseno");
-        MenuItem similaresTfIdf = new Menu("Tf-Idf");
+        MenuItem similaresFreq = new MenuItem("Frecuencia");
+        MenuItem similaresCoseno = new MenuItem("Coseno");
+        MenuItem similaresTfIdf = new MenuItem("Tf-Idf");
 
         verDoc.setOnAction(new EventHandler<ActionEvent>() {
             @Override

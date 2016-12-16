@@ -4,6 +4,7 @@ package Presentation;
 import Domain.Documento;
 import Domain.DocumentoNoExiste;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 
@@ -13,6 +14,7 @@ public class DocumentViewController extends ViewController {
     @FXML private Label docViewAutores;
     @FXML private Label docViewTag;
     @FXML private TextArea docViewContenido;
+    @FXML private Button docViewAtras;
 
     /* OVERRIDE */
     @Override
@@ -33,6 +35,11 @@ public class DocumentViewController extends ViewController {
         } catch (DocumentoNoExiste e) {
             // Lo que sea
         }
+    }
+
+    @FXML
+    private void handleBotonAtras() {
+        app.changeToMainView();
     }
 
 }
