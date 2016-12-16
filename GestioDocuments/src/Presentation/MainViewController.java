@@ -7,6 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.input.ContextMenuEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
@@ -21,6 +22,7 @@ public class MainViewController extends ViewController {
     @FXML private ListView listaResultados;
 
     private String ultimoAutorBuscado;
+    private Label ultimoLabelItemPulsado;
 
     /* OVERRIDES */
     @Override
@@ -70,14 +72,19 @@ public class MainViewController extends ViewController {
         verDoc.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                Label item = (Label) event.getSource();
-                app.changeToDocumentView(item.getText(), ultimoAutorBuscado);
+                app.changeToDocumentView(ultimoLabelItemPulsado.getText(), ultimoAutorBuscado);
             }
         });
 
         buscarSimilares.getItems().addAll(similaresFreq, similaresCoseno, similaresTfIdf);
         contextMenu.getItems().addAll(verDoc, buscarSimilares);
 
-        region.setOnContextMenuRequested(e -> contextMenu.show(region, e.getScreenX(), e.getScreenY()));
+        region.setOnContextMenuRequested(new EventHandler<ContextMenuEvent>() {
+            @Override
+            public void handle(ContextMenuEvent event) {
+                ultimoLabelItemPulsado = (Label) event.getSource();
+                contextMenu.show(region, event.getScreenX(), event.getScreenY());
+            }
+        });
     }
 }
