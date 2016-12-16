@@ -30,9 +30,9 @@ public class Main {
         Collection.getInstance();
         System.out.println("hecho.");
 
-        DriverExpresion.run();
+        //DriverExpresion.run();
 
-        /*
+
         while (true) {
             try {
                 Thread.sleep(500);
@@ -75,8 +75,6 @@ public class Main {
                     break;
             }
         }
-
-        */
 
     }
 

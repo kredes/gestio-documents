@@ -2,16 +2,12 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 
-<VBox xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1">
+<VBox fx:controller="Presentation.DocumentListItem"
+        xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label fx:id="docItemTitulo" text="El presidente del Popular cree que los ataques a la acción “son especulativos”" wrapText="true">
          <font>
@@ -23,30 +19,13 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <GridPane>
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="312.0" minWidth="10.0" prefWidth="277.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="0.0" prefWidth="54.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <Label fx:id="docItemTag" text="Economía" wrapText="true">
-               <font>
-                  <Font name="System Italic" size="16.0" />
-               </font>
-            </Label>
-            <MenuButton fx:id="docItemMenu" mnemonicParsing="false" prefHeight="31.0" prefWidth="141.0" text="Más" GridPane.columnIndex="1">
-              <items>
-                <MenuItem fx:id="docItemMenuVerDocumento" mnemonicParsing="false" text="Ver documento completo" />
-                <MenuItem fx:id="docItemMenuSimilares" mnemonicParsing="false" text="Buscar documentos similares" />
-              </items>
-            </MenuButton>
-         </children>
-      </GridPane>
+      <Label fx:id="docItemTag" text="Economía" wrapText="true">
+         <font>
+            <Font name="System Italic" size="16.0" />
+         </font>
+      </Label>
    </children>
    <padding>
-      <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+      <Insets bottom="10.0" left="15.0" right="15.0" top="10.0" />
    </padding>
 </VBox>

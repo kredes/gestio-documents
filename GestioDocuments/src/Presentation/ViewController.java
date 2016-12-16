@@ -6,14 +6,12 @@ import javafx.scene.layout.Pane;
 
 import java.io.IOException;
 
-/**
- * Created by kredes on 16/12/2016.
- */
+
 public abstract class ViewController {
-    private Main app;
-    private Scene scene;
-    private Pane root;
-    private ControladorDominio ctrlDominio;
+    protected Main app;
+    protected Scene scene;
+    protected Pane root;
+    protected ControladorDominio ctrlDominio;
 
     public ViewController() {
         try {
@@ -30,6 +28,10 @@ public abstract class ViewController {
     public void setUpView() {
         root = app.getRoot();
         scene = app.getScene();
+    }
+
+    public void afterShow() {
+
     }
 
     protected abstract void errorControladorDominio();

@@ -2,12 +2,15 @@ package Presentation;/**
  * Created by kredes on 11/12/2016.
  */
 
+import Domain.Collection;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class Main extends Application {
 
@@ -31,7 +34,17 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) {
         stage = primaryStage;
-        changeToDocumentView();
+
+        System.out.print("Cargando colección... ");
+        System.out.flush();
+        try {
+            Collection.getInstance();
+        } catch (IOException e) {
+            // Mostrar algo
+        }
+        System.out.println("hecho.");
+
+        changeToMainView();
     }
 
     public void changeToMainView() {
@@ -43,16 +56,18 @@ public class Main extends Application {
             stage.setTitle("GestioDocuments v0.0.0 - Main View");
             stage.setScene(scene);
             stage.show();
+
+            controller.afterShow();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public void changeToDocumentView() {
+    public void changeToDocumentView(String titulo, String autor) {
         try {
             DocumentViewController controller = changeScene("document_view.fxml");
             controller.setApp(this);
-            controller.setUpView();
+            controller.setUpView(titulo, autor);
 
             stage.setTitle("GestioDocuments - Document View [No editable]");
             stage.setScene(scene);
