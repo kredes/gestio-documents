@@ -124,7 +124,6 @@ public class ControladorPersistencia implements CtrlPersistencia {
     public Documento getDocumento(int id) throws IOException {
         try(BufferedReader reader = Files.newBufferedReader(Paths.get(FOLDER.toString(), String.valueOf(id)))) {
             String titulo = reader.readLine();
-
             reader.readLine(); // Descartar separador
 
             ArrayList<String> autores = new ArrayList<>();
