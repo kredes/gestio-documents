@@ -115,12 +115,13 @@ public class Expresion {
     }
 
     public Node generateTree(List<Token> postOrder) throws SyntaxErrorException {
+        if (postOrder.isEmpty()) throw new SyntaxErrorException();
+
         List<Node> nodes = new ArrayList<>();
         for (Token t : postOrder) {
             nodes.add(new Node(t));
         }
 
-        // TODO i si no hi ha operadors? o buida?
         int i = 0;
         Node node = null;
         while (i < nodes.size()) {

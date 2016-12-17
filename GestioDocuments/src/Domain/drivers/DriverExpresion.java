@@ -10,6 +10,7 @@ import java.util.Set;
 
 public class DriverExpresion {
 
+    /*
     private static final String DUMMY = "!sentencia & {patti dylan} & japonés";
 
     private static String tokenArrayToString(List<Token> tokens) {
@@ -17,6 +18,7 @@ public class DriverExpresion {
         for (Token t : tokens) tokenStringList.add(t.toString());
         return String.join(", ", tokenStringList);
     }
+    */
 
     public static void run() throws SyntaxErrorException, IOException {
         System.out.println("Empezamos");
@@ -42,12 +44,24 @@ public class DriverExpresion {
 */
 
         String[] pruebas = new String[] {
+                // docs existentes
                 "aniversario noble & terrorista",
                 "!sentencia & {patti dylan} & japonés",
-                "{p1 p2 p3}   & (\"hola adios\" |pepe )  &     ! juan  ",
                 "Chipre & Christy & Estepona & !móvil",
+                "!&((((Barcelona))|Valencia))",
+
+                // errores sintaxis
+                "",
+                "   &, ", // TODO fix
+                "a!&|b",
+                "a!!",
+                "!!a",
+                "a&b!&c",
                 "Chipre &",
-                "{p1 p2 p3} & (\"hola adios\" | pepe & !juan"
+                "{p1 p2 p3} & (\"hola adios\" | pepe & !juan",
+
+                // otros
+                "{p1 p2 p3}   & (\"hola adios\" |pepe )  &     ! juan  "
         };
 
         for (String s : pruebas) {
@@ -61,7 +75,7 @@ public class DriverExpresion {
                 }
             }
             catch (ParenthesisMismatchException e) {
-                System.out.println("\tError de sintáxis en paréntesis");
+                System.out.println("\tError de sintaxis en paréntesis");
             }
             catch (SyntaxErrorException e) {
                 System.out.println("\tError de sintaxis");
