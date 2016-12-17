@@ -145,7 +145,6 @@ public class MainViewController extends ViewController {
         stage.setScene(scene);
         stage.showAndWait();
 
-        System.out.println(text.getText());
         return Integer.valueOf(text.getText());
     }
 }
