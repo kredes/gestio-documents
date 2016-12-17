@@ -58,7 +58,7 @@ public class Expresion {
                 int inici = i;
                 while (i < expr.length() && Character.isLetterOrDigit(expr.charAt(i)))
                     ++i;
-                tokens.add(new Token(TToken.wordSequence, expr.substring(inici, i)));
+                tokens.add(new Token(TToken.word, expr.substring(inici, i)));
             }
             else
                 throw new SyntaxErrorException();

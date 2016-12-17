@@ -16,22 +16,21 @@ public class ExpresionTest {
     public void validaYEvalua() throws Exception {
         String[] pruebas = new String[] {
                 // docs existentes
-                /*
                 "aniversario noble & terrorista",
                 "!sentencia & {patti dylan} & japonés",
                 "Chipre & Christy & Estepona & !móvil",
-                "!&((((Barcelona))|Valencia))",
-
+                "!móvil&((((Barcelona))|Valencia))",
 
                 // errores sintaxis
                 "",
                 "   &, ",
                 "a!&|b",
-                */
-                "a!!", // TODO fix
+                "a!", // TODO fix
+                "a!!",
                 "!!a",
                 "a&b!&c",
                 "Chipre &",
+                "!&((((Barcelona))|Valencia))",
                 "{p1 p2 p3} & (\"hola adios\" | pepe & !juan",
 
                 // otros
