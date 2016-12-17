@@ -2,7 +2,6 @@ package Presentation;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 
@@ -18,14 +17,13 @@ public class DocumentListItem extends VBox {
     @FXML private Label docItemTag;
 
     public DocumentListItem(String titulo, String autores, String tag) {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setBuilderFactory(new JavaFXBuilderFactory());
-        loader.setLocation(Main.class.getResource("document_list_item.fxml"));
-
-        loader.setController(this);
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(
+                "custom_control.fxml"));
+        fxmlLoader.setRoot(this);
+        fxmlLoader.setController(this);
 
         try {
-            loader.load();
+            fxmlLoader.load();
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }

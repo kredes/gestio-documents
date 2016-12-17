@@ -74,6 +74,7 @@ public class MainViewController extends ViewController {
 
             for (MyPair<Documento, Double> pair : similares) {
                 Documento doc = pair.getKey();
+
                 DocumentListItem item = new DocumentListItem(
                         doc.getTituloString(),
                         String.join(",", doc.getAutoresStrings()),
