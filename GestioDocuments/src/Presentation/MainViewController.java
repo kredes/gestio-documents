@@ -1,13 +1,14 @@
 package Presentation;
 
 
+import Domain.CalcSimilitudFreq;
+import Domain.Documento;
+import Domain.MyPair;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.input.ContextMenuEvent;
+import javafx.scene.input.MouseButton;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
@@ -42,48 +43,67 @@ public class MainViewController extends ViewController {
         String autor = buscarAutorTexto.getText();
         ArrayList<String> titulos = ctrlDominio.librosAutor(autor);
 
-        ultimoAutorBuscado = autor;
-
         if (titulos.isEmpty()) {
             listaResultados.getItems().clear();
         } else {
             ObservableList<Label> items = FXCollections.observableArrayList();
             for (String titulo : titulos) {
                 Label label = new Label(titulo);
-                addDocItemContextMenu(label);
+
+                label.setOnMouseClicked(event -> {
+                    if (event.getButton() == MouseButton.PRIMARY && event.getClickCount() == 2) {
+                        app.changeToDocumentView(titulo, autor);
+                    }
+                });
+
+                addDocItemContextMenu(label, titulo, autor);
+                label.onContextMenuRequestedProperty();
                 items.add(label);
             }
             listaResultados.setItems(items);
         }
     }
 
+    private void buscarSimilaresFreq(String titulo, String autor) {
+        try {
+            ArrayList<MyPair<Documento, Double>> similares = ctrlDominio.buscarParecidos(titulo, autor, 10, CalcSimilitudFreq.getInstance());
+
+            ObservableList<DocumentListItem> items = FXCollections.observableArrayList();
+
+            listaResultados.getItems().clear();
+
+            for (MyPair<Documento, Double> pair : similares) {
+                Documento doc = pair.getKey();
+                DocumentListItem item = new DocumentListItem(
+                        doc.getTituloString(),
+                        String.join(",", doc.getAutoresStrings()),
+                        doc.getEtiquetasStrings().get(0)
+                );
+                items.add(item);
+            }
+            listaResultados.setItems(items);
+
+        } catch (Exception e) {
+
+        }
+    }
 
 
     /* AUXILIARES */
-    private void addDocItemContextMenu(Region region) {
+    private void addDocItemContextMenu(Region region, String titulo, String autor) {
         ContextMenu contextMenu = new ContextMenu();
-        MenuItem verDoc = new MenuItem("Ver documento");
         Menu buscarSimilares = new Menu("Buscar similares");
         MenuItem similaresFreq = new MenuItem("Frecuencia");
         MenuItem similaresCoseno = new MenuItem("Coseno");
         MenuItem similaresTfIdf = new MenuItem("Tf-Idf");
 
-        verDoc.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                app.changeToDocumentView(ultimoLabelItemPulsado.getText(), ultimoAutorBuscado);
-            }
-        });
+        similaresFreq.setOnAction(event -> buscarSimilaresFreq(titulo, autor));
 
         buscarSimilares.getItems().addAll(similaresFreq, similaresCoseno, similaresTfIdf);
-        contextMenu.getItems().addAll(verDoc, buscarSimilares);
+        contextMenu.getItems().add(buscarSimilares);
 
-        region.setOnContextMenuRequested(new EventHandler<ContextMenuEvent>() {
-            @Override
-            public void handle(ContextMenuEvent event) {
-                ultimoLabelItemPulsado = (Label) event.getSource();
-                contextMenu.show(region, event.getScreenX(), event.getScreenY());
-            }
+        region.setOnContextMenuRequested(event -> {
+            contextMenu.show(region, event.getScreenX(), event.getScreenY());
         });
     }
 }
