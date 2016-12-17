@@ -43,13 +43,17 @@ public class Expresion {
                 ++i;
             } else if (c == '{') {
                 int inici = i;
-                while (expr.charAt(i) != '}') ++i;
+                while (i < expr.length() && expr.charAt(i) != '}') ++i;
+
+                if (i >= expr.length()) throw new SyntaxErrorException();
                 tokens.add(new Token(TToken.wordSet, expr.substring(inici, i+1)));
                 ++i;
             } else if (c == '"') {
                 int inici = i;
                 ++i;
-                while (expr.charAt(i) != '"') ++i;
+                while (i < expr.length() && expr.charAt(i) != '"') ++i;
+                if (i >= expr.length()) throw new SyntaxErrorException();
+
                 tokens.add(new Token(TToken.wordSequence, expr.substring(inici, i+1)));
                 ++i;
             } else if (c == ' ') {
@@ -62,6 +66,18 @@ public class Expresion {
             }
             else
                 throw new SyntaxErrorException();
+        }
+
+        for (int j = 0; j < tokens.size(); ++j) {
+            Token t = tokens.get(j);
+            if (t.isPrefixOperator()) {
+                if (j == tokens.size()-1)
+                    throw new SyntaxErrorException();
+
+                Token next = tokens.get(j+1);
+                if (!(next.isLeftParenth() || next.isWord() || next.isWordSet() || next.isWordSequence() || next.isPrefixOperator()))
+                    throw new SyntaxErrorException();
+            }
         }
 
         return tokens;
@@ -176,6 +192,7 @@ public class Expresion {
     private static class ExpressionEvaluator {
         private Collection collection;
         private int totalDocNum;
+
         public ExpressionEvaluator() throws IOException {
             collection = Collection.getInstance();
             totalDocNum = ControladorPersistencia.getInstance().getNumDocumentos();
