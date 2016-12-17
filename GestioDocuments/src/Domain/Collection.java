@@ -12,7 +12,7 @@ public class Collection {
     private SortedMap<Palabra,Double> nDocsPerWord;                //Valor: Número de documentos en los que aparece (Palabra) sobre
                                                                 //el total de la colección
     private SortedMap<Palabra, SortedMap<Palabra,Double>> nDocPerWordTag;  //Valor: Número de documentos en los que aparece (Palabra) sobre
-    private int nDocs;
+    private int nDocs = ControladorPersistencia.getInstance().getNumDocumentos();
     private static Collection instance = null;
 
     private SortedMap<String, ArrayList<Documento>> indexTitulo;
