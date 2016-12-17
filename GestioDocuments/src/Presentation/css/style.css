@@ -17,8 +17,9 @@
 
 .search:hover {
     -fx-border-width:           1;
-    -fx-border-color:           #F4BE73;
-    -fx-border-radius:          5;
+    -fx-border-color:           #039ed3;
+    -fx-border-radius:          5px;
+    -fx-effect:                 dropshadow( one-pass-box , #039ed3 , 18 , 0.0 , 0 , 0 );
 }
 
 .label {
@@ -47,4 +48,8 @@
     -fx-background-repeat:      no-repeat;
     -fx-background-position:    center;
     -fx-padding:                5px;
+}
+
+.textfield:hover {
+    -fx-effect:               dropshadow( one-pass-box , #039ed3 , 18 , 0.0 , 0 , 0 );
 }

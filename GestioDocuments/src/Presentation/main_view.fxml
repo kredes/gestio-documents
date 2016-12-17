@@ -29,7 +29,7 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <TextField fx:id="buscarAutorTexto" GridPane.rowIndex="2" />
+                        <TextField styleClass="textfield" fx:id="buscarAutorTexto" GridPane.rowIndex="2" />
                         <Label text="Lista de títulos de un autor" GridPane.columnSpan="2">
                            <font>
                               <Font name="System Bold" size="18.0" />
@@ -66,7 +66,7 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <TextField fx:id="buscarPrefijoTexto" GridPane.rowIndex="2" />
+                        <TextField styleClass="textfield" fx:id="buscarPrefijoTexto" GridPane.rowIndex="2" />
                         <Label text="Autores por prefijo" GridPane.columnSpan="2">
                            <font>
                               <Font name="System Bold" size="18.0" />
@@ -105,7 +105,7 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <TextField fx:id="buscarDocTitulo" GridPane.rowIndex="2" />
+                        <TextField styleClass="textfield" fx:id="buscarDocTitulo" GridPane.rowIndex="2" />
                         <Label text="Documento por título y autor" GridPane.columnSpan="2">
                            <font>
                               <Font name="System Bold" size="18.0" />
@@ -130,7 +130,7 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="buscarDocAutor" layoutX="35.0" layoutY="95.0" GridPane.rowIndex="4" />
+                        <TextField styleClass="textfield" fx:id="buscarDocAutor" layoutX="35.0" layoutY="95.0" GridPane.rowIndex="4" />
                         <Button fx:id="buscarDocBoton" mnemonicParsing="false" prefWidth="30" styleClass="search" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                      </children>
                      <padding>
@@ -153,7 +153,7 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <TextField fx:id="buscarExpresionTexto" GridPane.columnSpan="3" GridPane.rowIndex="2" />
+                        <TextField styleClass="textfield" fx:id="buscarExpresionTexto" GridPane.columnSpan="3" GridPane.rowIndex="2" />
                         <Label text="Expresión booleana" GridPane.columnSpan="3">
                            <font>
                               <Font name="System Bold" size="18.0" />
@@ -196,7 +196,7 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <TextField fx:id="buscarQueryTexto" GridPane.columnSpan="2" GridPane.rowIndex="2" />
+                        <TextField styleClass="textfield" fx:id="buscarQueryTexto" GridPane.columnSpan="2" GridPane.rowIndex="2" />
                         <Label text="Query" GridPane.columnSpan="2">
                            <font>
                               <Font name="System Bold" size="18.0" />
@@ -226,7 +226,7 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="buscarQueryK" layoutX="35.0" layoutY="95.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        <TextField styleClass="textfield" fx:id="buscarQueryK" layoutX="35.0" layoutY="95.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                      </children>
                      <padding>
                         <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
