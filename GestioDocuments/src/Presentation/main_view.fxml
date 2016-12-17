@@ -16,7 +16,7 @@
    <children>
       <HBox fx:id="contentHBox" styleClass="background" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <VBox fx:id="functionalityVBox" prefHeight="910.0" prefWidth="422.0" HBox.hgrow="ALWAYS">
+            <VBox styleClass="leftMenu" fx:id="functionalityVBox" prefHeight="910.0" prefWidth="422.0" HBox.hgrow="ALWAYS">
                <children>
                   <GridPane alignment="CENTER" hgap="25.0" vgap="25.0">
                     <columnConstraints>
@@ -30,12 +30,12 @@
                     </rowConstraints>
                      <children>
                         <TextField styleClass="textfield" fx:id="buscarAutorTexto" GridPane.rowIndex="2" />
-                        <Label text="Lista de títulos de un autor" GridPane.columnSpan="2">
+                        <Label styleClass="labelMenu" text="Lista de títulos de un autor" GridPane.columnSpan="2">
                            <font>
                               <Font name="System Bold" size="18.0" />
                            </font>
                         </Label>
-                        <Label text="Autor" GridPane.rowIndex="1">
+                        <Label styleClass="labelMenu" text="Autor" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets />
                            </GridPane.margin>
@@ -46,7 +46,7 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <Button fx:id="buscarAutorBoton" mnemonicParsing="false" onAction="#buscarTitulosDeAutor" prefWidth="30" styleClass="search"  GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Button fx:id="buscarAutorBoton" mnemonicParsing="false" onAction="#buscarTitulosDeAutor" styleClass="search"  GridPane.columnIndex="1" GridPane.rowIndex="2" />
                      </children>
                      <VBox.margin>
                         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
@@ -67,12 +67,12 @@
                      </rowConstraints>
                      <children>
                         <TextField styleClass="textfield" fx:id="buscarPrefijoTexto" GridPane.rowIndex="2" />
-                        <Label text="Autores por prefijo" GridPane.columnSpan="2">
+                        <Label styleClass="labelMenu" text="Autores por prefijo" GridPane.columnSpan="2">
                            <font>
                               <Font name="System Bold" size="18.0" />
                            </font>
                         </Label>
-                        <Label text="Prefijo" GridPane.rowIndex="1">
+                        <Label styleClass="labelMenu" text="Prefijo" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets />
                            </GridPane.margin>
@@ -83,7 +83,7 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <Button fx:id="buscarPrefijoBoton" mnemonicParsing="false" prefWidth="30" styleClass="search" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Button fx:id="buscarPrefijoBoton" mnemonicParsing="false" styleClass="search" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                      </children>
                      <padding>
                         <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
@@ -106,12 +106,12 @@
                      </rowConstraints>
                      <children>
                         <TextField styleClass="textfield" fx:id="buscarDocTitulo" GridPane.rowIndex="2" />
-                        <Label text="Documento por título y autor" GridPane.columnSpan="2">
+                        <Label styleClass="labelMenu" text="Documento por título y autor" GridPane.columnSpan="2">
                            <font>
                               <Font name="System Bold" size="18.0" />
                            </font>
                         </Label>
-                        <Label text="Título" GridPane.rowIndex="1">
+                        <Label styleClass="labelMenu" text="Título" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets />
                            </GridPane.margin>
@@ -122,7 +122,7 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <Label layoutX="35.0" layoutY="55.0" text="Autor" GridPane.rowIndex="3">
+                        <Label styleClass="labelMenu" layoutX="35.0" layoutY="55.0" text="Autor" GridPane.rowIndex="3">
                            <padding>
                               <Insets top="20.0" />
                            </padding>
@@ -131,7 +131,7 @@
                            </font>
                         </Label>
                         <TextField styleClass="textfield" fx:id="buscarDocAutor" layoutX="35.0" layoutY="95.0" GridPane.rowIndex="4" />
-                        <Button fx:id="buscarDocBoton" mnemonicParsing="false" prefWidth="30" styleClass="search" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Button fx:id="buscarDocBoton" mnemonicParsing="false" styleClass="search" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                      </children>
                      <padding>
                         <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
@@ -154,12 +154,12 @@
                      </rowConstraints>
                      <children>
                         <TextField styleClass="textfield" fx:id="buscarExpresionTexto" GridPane.columnSpan="3" GridPane.rowIndex="2" />
-                        <Label text="Expresión booleana" GridPane.columnSpan="3">
+                        <Label styleClass="labelMenu" text="Expresión booleana" GridPane.columnSpan="3">
                            <font>
                               <Font name="System Bold" size="18.0" />
                            </font>
                         </Label>
-                        <Label text="Expresión" GridPane.rowIndex="1">
+                        <Label styleClass="labelMenu" text="Expresión" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets />
                            </GridPane.margin>
@@ -170,7 +170,7 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <Button fx:id="buscarExpresionBoton" mnemonicParsing="false" prefWidth="30" styleClass="search" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                        <Button fx:id="buscarExpresionBoton" mnemonicParsing="false" styleClass="search" GridPane.columnIndex="1" GridPane.rowIndex="3">
                            <GridPane.margin>
                               <Insets top="20.0" />
                            </GridPane.margin>
@@ -197,12 +197,12 @@
                      </rowConstraints>
                      <children>
                         <TextField styleClass="textfield" fx:id="buscarQueryTexto" GridPane.columnSpan="2" GridPane.rowIndex="2" />
-                        <Label text="Query" GridPane.columnSpan="2">
+                        <Label styleClass="labelMenu" text="Query" GridPane.columnSpan="2">
                            <font>
                               <Font name="System Bold" size="18.0" />
                            </font>
                         </Label>
-                        <Label text="Query" GridPane.rowIndex="1">
+                        <Label styleClass="labelMenu" text="Query" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets />
                            </GridPane.margin>
@@ -213,12 +213,12 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <Button fx:id="buscarQueryBoton" mnemonicParsing="false" prefWidth="30" styleClass="search" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                        <Button fx:id="buscarQueryBoton" mnemonicParsing="false" styleClass="search" GridPane.columnIndex="1" GridPane.rowIndex="3">
                            <GridPane.margin>
                               <Insets top="20.0" />
                            </GridPane.margin>
                         </Button>
-                        <Label layoutX="35.0" layoutY="55.0" text="k" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                        <Label styleClass="labelMenu" layoutX="35.0" layoutY="55.0" text="k" GridPane.columnIndex="2" GridPane.rowIndex="1">
                            <padding>
                               <Insets top="20.0" />
                            </padding>
@@ -237,7 +237,7 @@
                   </GridPane>
                </children>
             </VBox>
-            <VBox fx:id="resultsVBox" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="400.0" spacing="10.0">
+            <VBox styleClass="rightContent" fx:id="resultsVBox" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="400.0" spacing="10.0">
                <children>
                   <Label text="Resultado">
                      <VBox.margin>
