@@ -1,4 +1,25 @@
 .text-area-as-label {
-    -fx-background-color: transparent ;
-    -fx-background-insets: 0px ;
+    -fx-background-color:       transparent ;
+    -fx-background-insets:      0px ;
+}
+
+.background {
+    -fx-background-image:       url("../icons/bg.jpg");
+    -fx-background-size:        auto auto;
+}
+
+.search {
+    -fx-background-image:       url("../icons/search.png");
+    -fx-background-size:        25 25;
+    -fx-padding:                5 5 5 5;
+}
+
+.search:hover {
+    -fx-border-width:           1;
+    -fx-border-color:           #F4BE73;
+    -fx-border-radius:          5;
+}
+
+.label {
+    -fx-font-family:            Calibri;
 }

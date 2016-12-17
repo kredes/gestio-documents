@@ -92,6 +92,7 @@ public class Main extends Application {
 
         root = newRoot;
         scene = new Scene(root);
+        scene.getStylesheets().add("Presentation/css/style.css");
 
         return (T) loader.getController();
     }

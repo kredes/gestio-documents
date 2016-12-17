@@ -14,7 +14,7 @@
 
 <VBox prefHeight="400.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Presentation.MainViewController">
    <children>
-      <HBox fx:id="contentHBox" prefHeight="100.0" prefWidth="200.0">
+      <HBox fx:id="contentHBox" styleClass="background" prefHeight="100.0" prefWidth="200.0">
          <children>
             <VBox fx:id="functionalityVBox" prefHeight="910.0" prefWidth="422.0" HBox.hgrow="ALWAYS">
                <children>
@@ -46,7 +46,7 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <Button fx:id="buscarAutorBoton" mnemonicParsing="false" onAction="#buscarTitulosDeAutor" text="Buscar" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Button fx:id="buscarAutorBoton" mnemonicParsing="false" onAction="#buscarTitulosDeAutor" prefWidth="30" styleClass="search"  GridPane.columnIndex="1" GridPane.rowIndex="2" />
                      </children>
                      <VBox.margin>
                         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
@@ -83,7 +83,7 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <Button fx:id="buscarPrefijoBoton" mnemonicParsing="false" text="Buscar" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Button fx:id="buscarPrefijoBoton" mnemonicParsing="false" prefWidth="30" styleClass="search" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                      </children>
                      <padding>
                         <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
@@ -131,7 +131,7 @@
                            </font>
                         </Label>
                         <TextField fx:id="buscarDocAutor" layoutX="35.0" layoutY="95.0" GridPane.rowIndex="4" />
-                        <Button fx:id="buscarDocBoton" mnemonicParsing="false" text="Buscar" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Button fx:id="buscarDocBoton" mnemonicParsing="false" prefWidth="30" styleClass="search" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                      </children>
                      <padding>
                         <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
@@ -170,7 +170,7 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <Button fx:id="buscarExpresionBoton" mnemonicParsing="false" text="Buscar" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                        <Button fx:id="buscarExpresionBoton" mnemonicParsing="false" prefWidth="30" styleClass="search" GridPane.columnIndex="1" GridPane.rowIndex="3">
                            <GridPane.margin>
                               <Insets top="20.0" />
                            </GridPane.margin>
@@ -213,7 +213,7 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <Button fx:id="buscarQueryBoton" mnemonicParsing="false" text="Buscar" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                        <Button fx:id="buscarQueryBoton" mnemonicParsing="false" prefWidth="30" styleClass="search" GridPane.columnIndex="1" GridPane.rowIndex="3">
                            <GridPane.margin>
                               <Insets top="20.0" />
                            </GridPane.margin>
