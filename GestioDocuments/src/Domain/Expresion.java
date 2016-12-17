@@ -19,7 +19,7 @@ public class Expresion {
         return expresion.eval(treeRoot);
     }
 
-    public ArrayList<Token> generateTokens(String expr) {
+    public ArrayList<Token> generateTokens(String expr) throws SyntaxErrorException {
         ArrayList<Token> tokens = new ArrayList<>();
 
         int i = 0;
@@ -54,12 +54,14 @@ public class Expresion {
                 ++i;
             } else if (c == ' ') {
                 ++i;
-            } else { // word
+            } else if (Character.isLetterOrDigit(expr.charAt(i))) { // word
                 int inici = i;
                 while (i < expr.length() && Character.isLetterOrDigit(expr.charAt(i)))
                     ++i;
                 tokens.add(new Token(TToken.wordSequence, expr.substring(inici, i)));
             }
+            else
+                throw new SyntaxErrorException();
         }
 
         return tokens;

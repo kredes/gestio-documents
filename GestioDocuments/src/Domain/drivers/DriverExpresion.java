@@ -43,45 +43,5 @@ public class DriverExpresion {
         for (Documento d : result) System.out.println(String.format("\t%d. %s", d.getId(), d.getTituloString()));
 */
 
-        String[] pruebas = new String[] {
-                // docs existentes
-                "aniversario noble & terrorista",
-                "!sentencia & {patti dylan} & japonés",
-                "Chipre & Christy & Estepona & !móvil",
-                "!&((((Barcelona))|Valencia))",
-
-                // errores sintaxis
-                "",
-                "   &, ", // TODO fix
-                "a!&|b",
-                "a!!",
-                "!!a",
-                "a&b!&c",
-                "Chipre &",
-                "{p1 p2 p3} & (\"hola adios\" | pepe & !juan",
-
-                // otros
-                "{p1 p2 p3}   & (\"hola adios\" |pepe )  &     ! juan  "
-        };
-
-        for (String s : pruebas) {
-            Set<Documento> result;
-            System.out.println("Búsqueda de: " + s);
-            try {
-                result = Expresion.validaYEvalua(s);
-                System.out.println("Result: " + result.size() + " documentos");
-                for (Documento doc : result) {
-                    System.out.println("\t" + doc.getId() + ". " + doc.getTituloString());
-                }
-            }
-            catch (ParenthesisMismatchException e) {
-                System.out.println("\tError de sintaxis en paréntesis");
-            }
-            catch (SyntaxErrorException e) {
-                System.out.println("\tError de sintaxis");
-            }
-
-            System.out.println();
-        }
     }
 }
