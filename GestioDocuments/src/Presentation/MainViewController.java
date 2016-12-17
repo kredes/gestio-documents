@@ -1,17 +1,21 @@
 package Presentation;
 
 
+import Domain.CalcSimilitud;
 import Domain.CalcSimilitudFreq;
 import Domain.Documento;
 import Domain.MyPair;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseButton;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 import java.util.ArrayList;
 
@@ -64,28 +68,33 @@ public class MainViewController extends ViewController {
         }
     }
 
-    private void buscarSimilaresFreq(String titulo, String autor) {
+    private void buscarSimilaresFreq(String titulo, String autor, int k, CalcSimilitud cs) {
         try {
-            ArrayList<MyPair<Documento, Double>> similares = ctrlDominio.buscarParecidos(titulo, autor, 10, CalcSimilitudFreq.getInstance());
+            ArrayList<MyPair<Documento, Double>> similares = ctrlDominio.buscarParecidos(titulo, autor, k, cs);
 
             ObservableList<DocumentListItem> items = FXCollections.observableArrayList();
 
-            listaResultados.getItems().clear();
+            //listaResultados.getItems().clear();
 
             for (MyPair<Documento, Double> pair : similares) {
                 Documento doc = pair.getKey();
 
-                DocumentListItem item = new DocumentListItem(
-                        doc.getTituloString(),
-                        String.join(",", doc.getAutoresStrings()),
-                        doc.getEtiquetasStrings().get(0)
-                );
+                DocumentListItem item = new DocumentListItem();
+
+                item.setTitulo(doc.getTituloString());
+                item.setAutores(String.join(",", doc.getAutoresStrings()));
+                item.setTag(doc.getEtiquetasStrings().get(0));
+                item.setPorcentaje(String.format("%.2f %% de similitud", pair.getValue()));
+
+                addDocItemContextMenu(item, doc.getTituloString(), doc.getAutoresStrings().get(0));
+
                 items.add(item);
             }
+
             listaResultados.setItems(items);
 
         } catch (Exception e) {
-
+            e.printStackTrace();
         }
     }
 
@@ -98,7 +107,21 @@ public class MainViewController extends ViewController {
         MenuItem similaresCoseno = new MenuItem("Coseno");
         MenuItem similaresTfIdf = new MenuItem("Tf-Idf");
 
-        similaresFreq.setOnAction(event -> buscarSimilaresFreq(titulo, autor));
+        similaresFreq.setOnAction(event -> {
+            StackPane pane = new StackPane();
+            TextField text = new TextField();
+            pane.getChildren().add(text);
+            Scene scene = new Scene(pane, 200, 200);
+            Stage stage = new Stage();
+
+            stage.setScene(scene);
+            stage.showAndWait();
+
+            System.out.println(text.getText());
+            int k = Integer.valueOf(text.getText());
+
+            buscarSimilaresFreq(titulo, autor, k, CalcSimilitudFreq.getInstance());
+        });
 
         buscarSimilares.getItems().addAll(similaresFreq, similaresCoseno, similaresTfIdf);
         contextMenu.getItems().add(buscarSimilares);

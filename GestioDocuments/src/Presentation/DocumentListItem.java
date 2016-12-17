@@ -1,5 +1,6 @@
 package Presentation;
 
+import javafx.beans.property.StringProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
@@ -15,10 +16,11 @@ public class DocumentListItem extends VBox {
     @FXML private Label docItemTitulo;
     @FXML private Label docItemAutores;
     @FXML private Label docItemTag;
+    @FXML private Label docItemPorcentaje;
 
-    public DocumentListItem(String titulo, String autores, String tag) {
+    public DocumentListItem() {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(
-                "custom_control.fxml"));
+                "document_list_item.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 
@@ -27,13 +29,25 @@ public class DocumentListItem extends VBox {
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
-
-        docItemTitulo.setText(titulo);
-        docItemAutores.setText(autores);
-        docItemTag.setText(tag);
     }
 
-    public String getTitulo() { return docItemTitulo.getText(); }
+    public StringProperty tituloProperty() {
+        return docItemTitulo.textProperty();
+    }
+    public StringProperty autorProperty() {
+        return docItemAutores.textProperty();
+    }
+    public StringProperty tagProperty() {
+        return docItemTag.textProperty();
+    }
+    public StringProperty porcentajeProperty() {
+        return docItemPorcentaje.textProperty();
+    }
+
+    public void setTitulo(String titulo) { tituloProperty().set(titulo); }
+    public void setAutores(String autores) { autorProperty().set(autores); }
+    public void setTag(String tag) { tagProperty().set(tag); }
+    public void setPorcentaje(String porc) { porcentajeProperty().set(porc); }
 
     public String getAutoresString() { return docItemAutores.getText(); }
 

@@ -5,9 +5,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<VBox fx:controller="Presentation.DocumentListItem"
-        xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root type="javafx.scene.layout.VBox" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label fx:id="docItemTitulo" text="El presidente del Popular cree que los ataques a la acción “son especulativos”" wrapText="true">
          <font>
@@ -24,8 +22,13 @@
             <Font name="System Italic" size="16.0" />
          </font>
       </Label>
+      <Label fx:id="docItemPorcentaje" prefHeight="25.0" prefWidth="400.0" text="xx.xx %" wrapText="true">
+         <font>
+            <Font name="System Italic" size="16.0" />
+         </font>
+      </Label>
    </children>
    <padding>
       <Insets bottom="10.0" left="15.0" right="15.0" top="10.0" />
    </padding>
-</VBox>
+</fx:root>
