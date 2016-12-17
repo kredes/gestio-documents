@@ -50,7 +50,7 @@
             <TilePane maxHeight="-Infinity" minHeight="-Infinity" prefHeight="60.0" prefWidth="60.0">
                <children>
                   <Button onAction="#handleBotonAtras"
-                          fx:id="docViewAtras" defaultButton="true" mnemonicParsing="false" style="-fx-graphic: url(&quot;icons/back.png&quot;);" text="Atrás">
+                          fx:id="docViewAtras" defaultButton="true" mnemonicParsing="false" style="-fx-graphic: url(&quot;icons/back.png&quot;);" prefWidth="30" styleClass="back">
                      <TilePane.margin>
                         <Insets right="20.0" />
                      </TilePane.margin>
