@@ -199,34 +199,13 @@ public class Expresion {
         }
 
         private static Set<String> parseSet(Token t) {
-            Set<String> words; // = new HashSet<>();
-
             String value = t.toString();
 
-            // Mucho más simple
-            words = new HashSet<>(
+            return new HashSet<>(
                     Arrays.asList(
                             value.substring(1, value.length()-1).split(" ")
                     )
             );
-
-            /*
-            int i = 1;
-            while (i < value.length()) {
-                // Para que no quede en un bucle infinito
-                if (value.charAt(i) == ' ') ++i;
-                else if (value.charAt(i) == '}') break;
-
-                int inici = i;
-                while (i < value.length()-1 && value.charAt(i) != ' ') {
-                    ++i;
-                }
-
-                String word = value.substring(inici, i);
-                words.add(word);
-            }*/
-
-            return words;
         }
 
         public Set<Documento> eval(Node tree) {
