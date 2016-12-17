@@ -45,7 +45,7 @@
       </VBox>
    </center>
    <top>
-      <VBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="60.0" prefWidth="60.0" BorderPane.alignment="CENTER">
+      <VBox styleClass="leftMenu" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="60.0" prefWidth="60.0" BorderPane.alignment="CENTER">
          <children>
             <TilePane maxHeight="-Infinity" minHeight="-Infinity" prefHeight="60.0" prefWidth="60.0">
                <children>
