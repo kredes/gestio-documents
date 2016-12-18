@@ -90,10 +90,12 @@ public class ControladorDominio implements CtrlDominio {
     }
 
     @Override
-    public ArrayList<String> librosAutor(String autor) {
+    public ArrayList<String> librosAutor(String autor) throws AutorNoExiste {
         Map<String, ArrayList<Documento>> index = collection.getIndexAutor();
 
         ArrayList<Documento> docs = index.get(autor);
+
+        if (docs == null) throw new AutorNoExiste();
 
         ArrayList<String> result = new ArrayList<>();
         for (Documento d : docs) result.add(d.getTituloString());

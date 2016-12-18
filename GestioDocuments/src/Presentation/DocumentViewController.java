@@ -14,7 +14,8 @@ public class DocumentViewController extends ViewController {
     @FXML private Label docViewAutores;
     @FXML private Label docViewTag;
     @FXML private TextArea docViewContenido;
-    @FXML private Button docViewAtras;
+    @FXML private Button docViewEditar;
+    @FXML private Button docViewGuardar;
 
     /* OVERRIDE */
     @Override
@@ -42,4 +43,16 @@ public class DocumentViewController extends ViewController {
         app.changeToMainView();
     }
 
+    @FXML private void editarDocumento() {
+        docViewEditar.setDisable(true);
+        docViewTitulo.setDisable(false);
+        docViewAutores.setDisable(false);
+        docViewTag.setDisable(false);
+        docViewContenido.setDisable(false);
+        docViewGuardar.setDisable(false);
+    }
+
+    @FXML private void guardarDocumento() {
+
+    }
 }

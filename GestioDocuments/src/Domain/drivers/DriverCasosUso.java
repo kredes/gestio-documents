@@ -19,7 +19,7 @@ public class DriverCasosUso {
         ctrlDominio = ControladorDominio.getInstance();
     }
 
-    public static void run() {
+    public static void run() throws AutorNoExiste {
         while (true) {
             try {
                 Thread.sleep(500);

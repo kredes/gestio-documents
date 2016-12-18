@@ -55,12 +55,14 @@
                         <Insets right="20.0" />
                      </TilePane.margin>
                   </Button>
-                  <Button fx:id="docViewEditar" defaultButton="true" mnemonicParsing="false" style="-fx-graphic: url(&quot;icons/edit.png&quot;);" prefWidth="30" styleClass="edit">
+                  <Button onAction="#editarDocumento"
+                          fx:id="docViewEditar" defaultButton="true" mnemonicParsing="false" style="-fx-graphic: url(&quot;icons/edit.png&quot;);" prefWidth="30" styleClass="edit">
                      <TilePane.margin>
                         <Insets right="20.0" />
                      </TilePane.margin>
                   </Button>
-                  <Button fx:id="docViewGuardar" defaultButton="true" disable="true" mnemonicParsing="false" style="-fx-graphic: url(&quot;icons/save.png&quot;);" prefWidth="30" styleClass="save" />
+                  <Button onAction="#guardarDocumento"
+                          fx:id="docViewGuardar" defaultButton="true" disable="true" mnemonicParsing="false" style="-fx-graphic: url(&quot;icons/save.png&quot;);" prefWidth="30" styleClass="save" />
                </children>
                <padding>
                   <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />

@@ -6,6 +6,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseButton;
@@ -39,6 +40,9 @@ public class MainViewController extends ViewController {
         listaResultados.setPrefHeight(scene.getHeight());
         functionalityVBox.setPrefWidth(contentHBox.getHeight()/3);
         resultsVBox.setPrefWidth(contentHBox.getHeight()*2/3);
+
+        resultsVBox.setPrefWidth(scene.getWidth()*2/3);
+        functionalityVBox.setPrefWidth(scene.getWidth()/3);
     }
 
     @Override
@@ -52,22 +56,26 @@ public class MainViewController extends ViewController {
     }
 
     private void buscarTitulosDeAutor(String autor) {
-        ArrayList<String> titulos = ctrlDominio.librosAutor(autor);
+        try {
+            ArrayList<String> titulos = ctrlDominio.librosAutor(autor);
 
-        if (titulos.isEmpty()) {
-            listaResultados.getItems().clear();
-        } else {
-            ObservableList<Label> items = FXCollections.observableArrayList();
-            for (String titulo : titulos) {
-                Label label = new Label(titulo);
+            if (titulos.isEmpty()) {
+                listaResultados.getItems().clear();
+            } else {
+                ObservableList<Label> items = FXCollections.observableArrayList();
+                for (String titulo : titulos) {
+                    Label label = new Label(titulo);
 
-                setDocItemDobleClick(label, titulo, autor);
-                setDocItemContextMenu(label, titulo, autor);
+                    setDocItemDobleClick(label, titulo, autor);
+                    setDocItemContextMenu(label, titulo, autor);
 
-                label.onContextMenuRequestedProperty();
-                items.add(label);
+                    label.onContextMenuRequestedProperty();
+                    items.add(label);
+                }
+                listaResultados.setItems(items);
             }
-            listaResultados.setItems(items);
+        } catch (AutorNoExiste e) {
+            popupError("El autor no existe");
         }
     }
 
@@ -271,6 +279,7 @@ public class MainViewController extends ViewController {
 
         Label labelMensaje = new Label(mensaje);
         Button aceptar = new Button("Aceptar");
+        aceptar.setAlignment(Pos.CENTER);
         pane.getChildren().addAll(labelMensaje, aceptar);
 
         Scene scene = new Scene(pane);

@@ -8,7 +8,7 @@ public interface CtrlDominio {
 
     Documento buscarDocumento(String titulo, String autor) throws DocumentoNoExiste;
 
-    ArrayList<String> librosAutor(String autor);
+    ArrayList<String> librosAutor(String autor) throws AutorNoExiste;
 
     ArrayList<String> autoresPorPrefijo(String prefijo);
 
