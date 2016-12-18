@@ -159,7 +159,7 @@ public class ControladorDominio implements CtrlDominio {
                 return o2.getValue().compareTo(o1.getValue());
             }
         });
-        return new ArrayList<>(result.subList(0, k+1));    // El primero NO es él mismo (es ficiticio y no está en la colección)
+        return new ArrayList<>(result.subList(0, k));    // El primero NO es él mismo (es ficiticio y no está en la colección)
     }
 
 

@@ -209,6 +209,12 @@ public class Expresion {
         }
 
         public Set<Documento> eval(Node tree) {
+            TreeSet<Documento> ordered = new TreeSet<>(Comparator.comparing(Documento::getTituloString));
+            ordered.addAll(recursive_eval(tree));
+            return ordered;
+        }
+
+        public Set<Documento> recursive_eval(Node tree) {
             Set<Documento> result;
             Token t = tree.getToken();
 
@@ -225,16 +231,16 @@ public class Expresion {
             }
             else { // t.isOperator()
                 String s = t.toString();
-                result = eval(tree.getLeftChild());
+                result = recursive_eval(tree.getLeftChild());
                 if (s.equals("&")) {
                     if (!result.isEmpty()) {
-                        Set<Documento> resultR = eval(tree.getRightChild());
+                        Set<Documento> resultR = recursive_eval(tree.getRightChild());
                         // intersection(result,resultR) -> result
                         result.retainAll(resultR);
                     }
                 } else if (s.equals("|")) {
                     if (result.size() != totalDocNum) {
-                        Set<Documento> resultR = eval(tree.getRightChild());
+                        Set<Documento> resultR = recursive_eval(tree.getRightChild());
                         // union(result,resultR) -> result
                         result.addAll(resultR);
                     }
