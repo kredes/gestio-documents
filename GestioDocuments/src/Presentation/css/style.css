@@ -19,11 +19,11 @@
 
 .search {
     -fx-background-image:       url("../icons/search_white.png");
-    -fx-background-size:        25 25;
+    -fx-background-size:        20 20;
     -fx-background-repeat:      no-repeat;
     -fx-padding:                5 5 5 5;
     -fx-background-position:    center;
-    -fx-pref-width:             60px;
+    -fx-pref-width:             30px;
     -fx-border-radius:          0px;
 
     -fx-background-color:
@@ -33,7 +33,7 @@
             linear-gradient(#395cab, #223768);
         -fx-background-insets: 0,1,2,3;
         -fx-background-radius: 3,2,2,2;
-        -fx-padding: 12 30 12 30;
+        -fx-padding: 8 20 8 20;
 }
 
 .search:hover {
