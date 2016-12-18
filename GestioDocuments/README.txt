@@ -1,4 +1,36 @@
+Jordi Mora Pruna, Andrés Insaurralde Borzani, Àlex Serra Vidal y Alberto Gómez Cabrera
+-------------------------------------------------------------------------------------
+
+Diagrama de clases y casos de uso se encuentran dentro del directorio "UML y casos de uso"
+
+En el directorio "GestioDocuments" se encuentra la raíz del proyecto:
+	- datos: ficheros de los documentos utilizados en el programa.
+	- src: Main.java del programa y packages "Domain" y "Persistence"
+
+Para poder ejecutar el fichero .JAR se debe hacer desde "GestioDocuments/" con el comando:
+	java -jar GestioDocuments.jar
+
+
+
+Dentro del código hay partes sin finalizar (que no pertenecen a la 1a entrega) ya que van a ser parte del programa final cuando se presente en una segunda entrega (Clases, funciones, estructuras de datos...).
+
+
+------------
+SIMILITUDES
+-------------
+Cálculo de Similitud Freq:
+	- Devuelve el número de palabras coincidentes relacionado con la colección (top words) entre el documento1 y el documento2. Si se ejecuta desde el driver de Similitud no ofrece un valor porcentual, si se ejecuta desde el dirver de los casos de uso, se normaliza y ofrece un valor porcentual.
+
+Cálculo de Similitud Coseno:
+	- El cálculo de la similitud por coseno se realiza con los vectores normalizados que contienen la frecuencia de las palabras de sus documentos. Se calcula el coseno entre dos vectores para saber la distancia angular (y calcular el parecido) que hay entre ellos.
+
+Cálculo de Similitud TD IDF:
+	- El cálculo de la similitud por TF IDF calcula el peso de las palabras en cada documento, en forma de vector. Este peso viene definido por una relación entre el número de documentos que tienen una palabra en común (cuánto menos común es una palabra, más peso tiene) y el número de veces que aparece una palabra en el propio documento. Para comparar estos vectores se aplica la similitud del coseno.
+
+
+-------------------
 CÁLCULO RELEVANCIA
+-------------------
 
 Precondición:
  
@@ -12,9 +44,11 @@ Cómo se ejecuta el cálculo de la relevancia:
 
 	Hemos utilizado la similitud TF IDF porque creemos que es la más optima de las que hemos implementado.
 
+--------------------
 JUEGOS DE PRUEBAS:
+-------------------
 EXPRESIÓN
-=========
+----------
 !sentencia & {patti dylan} & japonés
 Chipre & Christy & Estepona & !móvil
 !móvil&((((Barcelona))|Valencia))
@@ -31,6 +65,7 @@ Chipre &
 !&((((Barcelona))|Valencia))
 {p1 p2 p3} & ("hola adios" | pepe & !juan
 {p1 p2 p3}   & ("hola adios" |pepe )  &     ! juan
+
 
 RELEVANCIA
 ==========
