@@ -9,8 +9,6 @@ public class Frase {
 
     // Frase
     private ArrayList<Palabra> palabras;
-    //private static final String separadores = "\n\t\\s\\.,;¿?¡!'\"/\\+\\(\\)\\[\\]–&“”‘’…«»º:";
-
 
     /* CONSTRUCTORAS */
 
@@ -18,7 +16,7 @@ public class Frase {
     //Pre: Cierto
     //Post: Se crea un objeto Frase
     public Frase() {
-        palabras = new ArrayList<Palabra>();
+        palabras = new ArrayList<>();
     }
 
     /* Constructora de Frase */

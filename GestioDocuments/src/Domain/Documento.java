@@ -8,6 +8,10 @@ import java.util.*;
 public class Documento {
     private int idDocumento;
 
+    /** Conceptos duplicados:
+     *  - los de Frase son para hacer busquedas sin stop words ni palabras no top words.
+     *  - los de String para presentarlo bien formateado al visualizar documentos y buscar secuencias de carácteres
+     */
     private Frase titulo;
     private String tituloString;
 
@@ -113,75 +117,26 @@ public class Documento {
     public ArrayList<Frase> getAutores() {
         return autores;
     }
-    public Set<Palabra> getEtiquetas() {
-        return etiquetas;
-    }
     public Contenido getArticulo() {
         return content;
     }
     public SortedMap<Palabra,Double> getTermFreq() { return termFreq; }
-    //public SortedMap<Palabra,Double> getTermFreqConj() { return termFreqConj; }
-
-    /*
-    public String getTituloStringSimplificado() {
-        ArrayList<String> titulo_ret = new ArrayList<String>();
-        for (int i = 0; i < titulo.getLength(); ++i) {
-           titulo_ret.add(titulo.getFrase().get(i).toString());
-        }
-        String tit = String.join(" ", titulo_ret);
-        return tit;
-    }*/
 
     public String getTituloString() {
         return tituloString;
     }
 
-    /*
-    public ArrayList<String> getAutoresStringsSimplificado() {
-        ArrayList<String> autoresString = new ArrayList<String>();
-        for (int i = 0; i < autores.size(); ++i){
-            String aut = "";
-            for (int j = 0; j < autores.get(i).getLength(); ++j){
-                aut += autores.get(i).getFrase().get(j).toString();
-                if (j < autores.get(i).getLength()-1) aut += " ";
-            }
-            autoresString.add(aut);
-        }
-        return autoresString;
-    }*/
-
     public ArrayList<String> getAutoresStrings() {
         return autoresString;
     }
-
-    /*
-    public ArrayList<String> getEtiquetasStringsSimplificado () {
-        ArrayList<String> etiquetasString = new ArrayList<String>();
-        for (Palabra et : etiquetas){
-            etiquetasString.add(et.toString());
-        }
-        return etiquetasString;
-    }*/
 
     public ArrayList<String> getEtiquetasStrings () {
         return etiquetasString;
     }
 
-    /*
-    public String getArticuloStringSimplificado() {
-        String fr = "";
-        for (int i = 0; i < content.getContenido().size(); ++i){
-            for (int j = 0; j < content.getContenido().get(i).getLength(); ++j){
-                fr += content.getContenido().get(i).getFrase().get(j).toString() + " ";
-            }
-        }
-        return fr;
-    }*/
-
     public String getArticuloString() {
         return contentString;
     }
-
 
     public double getNumeroPalabras() {
         double count = 0d;
