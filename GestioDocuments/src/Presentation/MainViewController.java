@@ -38,11 +38,9 @@ public class MainViewController extends ViewController {
     @Override
     public void afterShow() {
         listaResultados.setPrefHeight(scene.getHeight());
-        functionalityVBox.setPrefWidth(contentHBox.getHeight()/3);
-        resultsVBox.setPrefWidth(contentHBox.getHeight()*2/3);
-
-        resultsVBox.setPrefWidth(scene.getWidth()*2/3);
         functionalityVBox.setPrefWidth(scene.getWidth()/3);
+        listaResultados.setPrefWidth(scene.getWidth()*2/3);
+        resultsVBox.setPrefWidth(scene.getWidth()*2/3);
     }
 
     @Override
@@ -168,8 +166,10 @@ public class MainViewController extends ViewController {
                     DocumentListItem item = new DocumentListItem();
                     item.fillWithoutPercentage(doc);
 
-                    setDocItemDobleClick(item, doc.getTituloString(), doc.getAutoresStrings().get(0));
-                    setDocItemContextMenu(item, doc.getTituloString(), doc.getAutoresStrings().get(0));
+                    String autores = doc.getAutoresStrings().isEmpty() ? "(sin autor)" : String.join(",", doc.getAutoresStrings());
+
+                    setDocItemDobleClick(item, doc.getTituloString(), autores);
+                    setDocItemContextMenu(item, doc.getTituloString(), autores);
 
                     items.add(item);
                 }

@@ -34,7 +34,12 @@ public class DocumentListItem extends VBox {
 
     public void fillWithoutPercentage(Documento doc) {
         tituloProperty().set(doc.getTituloString());
-        autorProperty().set(String.join(",", doc.getAutoresStrings()));
+
+        if (doc.getAutoresStrings().isEmpty() || doc.getAutoresStrings().get(0).equals("")) {
+            autorProperty().set("(sin autor)");
+        } else {
+            autorProperty().set(String.join(",", doc.getAutoresStrings()));
+        }
         tagProperty().set(doc.getEtiquetasStrings().get(0));
         porcentajeProperty().set("");
     }

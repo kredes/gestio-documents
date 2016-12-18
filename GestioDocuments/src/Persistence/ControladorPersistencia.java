@@ -129,6 +129,8 @@ public class ControladorPersistencia implements CtrlPersistencia {
             ArrayList<String> autores = new ArrayList<>();
             String aux;
 
+            
+
             while(!(aux = reader.readLine()).equals(SEPARATOR)) { // Descartar separador
                 autores.add(aux);
             }
