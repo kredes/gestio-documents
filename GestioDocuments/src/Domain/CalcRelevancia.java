@@ -8,6 +8,7 @@ import java.util.Set;
 public class CalcRelevancia {
 
     /**
+     * Pre: Las palabras de la query están ordenadas de más a menos importancia
      * Dadas p palabras (colectivamente denominadas query) y un entero k, obtener los k documentos mas relevantes para dicha query
      */
     public ArrayList<MyPair<Documento, Double>> consultaRelevantes(ArrayList<String> palabras, int k) throws IOException, DocumentoNoExiste {
