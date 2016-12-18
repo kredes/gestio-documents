@@ -20,7 +20,6 @@ public class Documento {
     private Set<Palabra> etiquetas;
     private ArrayList<String> etiquetasString;
 
-    //ESTOS DOS MAPS SE INICIAN A LA VEZ CON LA FUNCIÓN setFreqs!!!
     private SortedMap<Palabra,Double> termFreq;          //Map amb totes les paraules que apareixen per la COLECCIÓ
                                                     //i el nombre de cops que apareixen les paraules en aquest Doc.
 
@@ -36,15 +35,15 @@ public class Documento {
         this.idDocumento = idDocumento;
         this.titulo = new Frase(titulo);
         this.tituloString = titulo;
-        this.autores = new ArrayList<Frase>();
-        for (int i = 0; i < autores.size(); ++i){
-            Frase aut = new Frase(autores.get(i));
+        this.autores = new ArrayList<>();
+        for (String autor : autores) {
+            Frase aut = new Frase(autor);
             this.autores.add(aut);
         }
         this.autoresString = autores;
-        this.etiquetas = new HashSet<Palabra>();
-        for (int i = 0; i < etiquetas.size(); ++i){
-            Palabra etiq = new Palabra(etiquetas.get(i));
+        this.etiquetas = new HashSet<>();
+        for (String etiqueta : etiquetas) {
+            Palabra etiq = new Palabra(etiqueta);
             this.etiquetas.add(etiq);
         }
         this.etiquetasString = etiquetas;
@@ -64,25 +63,25 @@ public class Documento {
         this.contentString = content;
     }
     public void setEtiquetas(ArrayList<String> etiquetas){
-        Set<Palabra> et = new HashSet<Palabra>();
-        for (int i = 0; i < etiquetas.size(); ++i){
-            Palabra p = new Palabra(etiquetas.get(i));
+        Set<Palabra> et = new HashSet<>();
+        for (String etiqueta : etiquetas) {
+            Palabra p = new Palabra(etiqueta);
             et.add(p);
         }
         this.etiquetas = et;
         this.etiquetasString = etiquetas;
     }
     public void setAutores(ArrayList<String> autores) throws IOException {
-        ArrayList<Frase> aut = new ArrayList<Frase>();
-        for (int i = 0; i < autores.size(); ++i){
-            Frase f = new Frase(autores.get(i));
+        ArrayList<Frase> aut = new ArrayList<>();
+        for (String autor : autores) {
+            Frase f = new Frase(autor);
             aut.add(f);
         }
         this.autores = aut;
         this.autoresString = autores;
     }
 
-    public void setFreqs (SortedMap<Palabra,Double> WordsCol, SortedMap<Palabra,SortedMap<Palabra,Double>> WordsConj){
+    public void setFreqs (SortedMap<Palabra,Double> WordsCol){
         for (Map.Entry<Palabra,Double> entry : WordsCol.entrySet()){
             termFreq.put(entry.getKey(),0.0);
         }
@@ -96,10 +95,10 @@ public class Documento {
 
         Contenido c = this.getArticulo();
         ArrayList<Frase> fContent = c.getContenido();
-        for (int i = 0; i < fContent.size(); ++i){
-            for (int y = 0; y < fContent.get(i).getLength(); ++y){
-                if (termFreq.containsKey(fContent.get(i).getWord(y)))
-                    termFreq.put(fContent.get(i).getWord(y), termFreq.get(fContent.get(i).getWord(y))+1);
+        for (Frase aFContent : fContent) {
+            for (int y = 0; y < aFContent.getLength(); ++y) {
+                if (termFreq.containsKey(aFContent.getWord(y)))
+                    termFreq.put(aFContent.getWord(y), termFreq.get(aFContent.getWord(y)) + 1);
             }
         }
     }
@@ -123,7 +122,7 @@ public class Documento {
     public SortedMap<Palabra,Double> getTermFreq() { return termFreq; }
     //public SortedMap<Palabra,Double> getTermFreqConj() { return termFreqConj; }
 
-
+    /*
     public String getTituloStringSimplificado() {
         ArrayList<String> titulo_ret = new ArrayList<String>();
         for (int i = 0; i < titulo.getLength(); ++i) {
@@ -131,12 +130,13 @@ public class Documento {
         }
         String tit = String.join(" ", titulo_ret);
         return tit;
-    }
+    }*/
 
     public String getTituloString() {
         return tituloString;
     }
 
+    /*
     public ArrayList<String> getAutoresStringsSimplificado() {
         ArrayList<String> autoresString = new ArrayList<String>();
         for (int i = 0; i < autores.size(); ++i){
@@ -148,24 +148,26 @@ public class Documento {
             autoresString.add(aut);
         }
         return autoresString;
-    }
+    }*/
 
     public ArrayList<String> getAutoresStrings() {
         return autoresString;
     }
 
+    /*
     public ArrayList<String> getEtiquetasStringsSimplificado () {
         ArrayList<String> etiquetasString = new ArrayList<String>();
         for (Palabra et : etiquetas){
             etiquetasString.add(et.toString());
         }
         return etiquetasString;
-    }
+    }*/
 
     public ArrayList<String> getEtiquetasStrings () {
         return etiquetasString;
     }
 
+    /*
     public String getArticuloStringSimplificado() {
         String fr = "";
         for (int i = 0; i < content.getContenido().size(); ++i){
@@ -174,7 +176,7 @@ public class Documento {
             }
         }
         return fr;
-    }
+    }*/
 
     public String getArticuloString() {
         return contentString;
