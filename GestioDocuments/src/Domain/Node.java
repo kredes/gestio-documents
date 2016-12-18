@@ -24,14 +24,6 @@ public class Node {
         return rightChild;
     }
 
-    public boolean hasLeftChild() {
-        return leftChild != null;
-    }
-
-    public boolean hasRightChild() {
-        return rightChild != null;
-    }
-
     public void setLeftChild(Node leftChild) {
         this.leftChild = leftChild;
     }

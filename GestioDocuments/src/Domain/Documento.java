@@ -117,9 +117,6 @@ public class Documento {
     public ArrayList<Frase> getAutores() {
         return autores;
     }
-    public Set<Palabra> getEtiquetas() {
-        return etiquetas;
-    }
     public Contenido getArticulo() {
         return content;
     }

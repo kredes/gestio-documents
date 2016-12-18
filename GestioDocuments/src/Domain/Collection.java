@@ -83,7 +83,6 @@ public class Collection {
         Set<Palabra> palabrasDoc = new HashSet<>();        //Contiene todas las palabras, sin repetir, de UN documento
 
         Frase fTitle = d.getTitulo();
-        //ArrayList<Palabra> palabrasTitle = fTitle.getFrase();
 
         Contenido con = d.getArticulo();
         ArrayList<Frase> frasesCon = con.getContenido();
@@ -141,8 +140,6 @@ public class Collection {
     public SortedMap<String, ArrayList<Documento>> getIndexTitulo() { return indexTitulo; }
     public SortedMap<String, ArrayList<Documento>> getIndexAutor() { return indexAutor; }
     public SortedMap<String, Documento> getIndexID() { return indexID; }
-    //public ArrayList<String> getTopWords() { return topWords; }
-    //public Set<String> getStopWords() { return stopWords; }
     public int getNDocs() {
         return nDocs;
     }

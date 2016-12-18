@@ -15,7 +15,6 @@ public class CalcSimilitudFreq implements CalcSimilitud {
     /* Constructor privado para que sólo pueda instanciarse desde la propia clase */
     private CalcSimilitudFreq() {}
 
-
     @Override
     public double calculaSimilitud(Documento d1, Documento d2) {
         Iterator<Map.Entry<Palabra,Double>> it = d1.getTermFreq().entrySet().iterator();
