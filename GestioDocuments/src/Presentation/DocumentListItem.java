@@ -1,5 +1,6 @@
 package Presentation;
 
+import Domain.Documento;
 import javafx.beans.property.StringProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -29,6 +30,18 @@ public class DocumentListItem extends VBox {
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
+    }
+
+    public void fillWithoutPercentage(Documento doc) {
+        tituloProperty().set(doc.getTituloString());
+        autorProperty().set(String.join(",", doc.getAutoresStrings()));
+        tagProperty().set(doc.getEtiquetasStrings().get(0));
+        porcentajeProperty().set("");
+    }
+
+    public void fillWithPercentage(Documento doc, Double percentage) {
+        fillWithoutPercentage(doc);
+        porcentajeProperty().set(String.format("%.2f %% de similitud", percentage));
     }
 
     public StringProperty tituloProperty() {

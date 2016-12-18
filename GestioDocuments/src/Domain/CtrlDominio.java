@@ -16,7 +16,7 @@ public interface CtrlDominio {
 
     ArrayList<MyPair<Documento, Double>> buscarParecidos(Documento doc, int k, CalcSimilitud cs) throws DocumentoNoExiste, IOException;
 
-    Set<Documento> buscarExpresion(String expresion);
+    Set<Documento> buscarExpresion(String expresion) throws SyntaxErrorException, IOException;
 
-    ArrayList<Documento> buscarRelevantes(String query, int k);
+    ArrayList<MyPair<Documento, Double>> buscarRelevantes(String query, int k) throws IOException, DocumentoNoExiste;
 }

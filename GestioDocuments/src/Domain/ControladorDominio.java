@@ -76,8 +76,14 @@ public class ControladorDominio implements CtrlDominio {
         Map<String, ArrayList<Documento>> index = collection.getIndexTitulo();
 
         ArrayList<Documento> docs = index.get(titulo);
+
+        if (docs == null) throw new DocumentoNoExiste();
+
         for (Documento d : docs) {
-            if (d.getTituloString().equals(titulo)) return d;
+            //if (d.getTituloString().equals(titulo)) return d;
+            for (String a : d.getAutoresStrings()) {
+                if (autor.equals(a)) return d;
+            }
         }
 
         throw new DocumentoNoExiste();
@@ -164,12 +170,18 @@ public class ControladorDominio implements CtrlDominio {
 
 
     @Override
-    public Set<Documento> buscarExpresion(String expresion) {
-        return null;
+    public Set<Documento> buscarExpresion(String expresion) throws SyntaxErrorException, IOException {
+        return Expresion.validaYEvalua(expresion);
     }
 
     @Override
-    public ArrayList<Documento> buscarRelevantes(String query, int k) {
-        return null;
+    public ArrayList<MyPair<Documento, Double>> buscarRelevantes(String query, int k) throws IOException, DocumentoNoExiste {
+        CalcRelevancia cr = new CalcRelevancia();
+        Frase f = new Frase(query);
+
+        ArrayList<String> palabras = new ArrayList<>();
+        for (Palabra p : f.getFrase()) palabras.add(p.toString());
+
+        return cr.consultaRelevantes(palabras, k);
     }
 }

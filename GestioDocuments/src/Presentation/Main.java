@@ -26,6 +26,8 @@ public class Main extends Application {
         return scene;
     }
 
+    public Stage getStage() { return stage; }
+
 
     public static void main(String[] args) {
         launch(args);
