@@ -216,10 +216,16 @@ public class MainViewController extends ViewController {
         }
     }
 
-    private void eliminarDocumento(String titulo, String autor) {
+    private void eliminarDocumento(String titulo, String autor, Region region) {
         try {
             Documento doc = ctrlDominio.buscarDocumento(titulo, autor);
             ctrlDominio.eliminarDocumento(doc);
+
+            if (region instanceof Label) {
+                listaResultados.getItems().remove((Label) region);
+            } else if (region instanceof DocumentListItem) {
+                listaResultados.getItems().removeAll((DocumentListItem) region);
+            }
         } catch (DocumentoNoExiste e) {
             popupError("El documento que quieres eliminar no existe");
         } catch (IOException e) {
@@ -261,7 +267,7 @@ public class MainViewController extends ViewController {
         similaresCoseno.setOnAction(e ->  buscarSimilares(titulo, autor, pedirNumeroPopUp(), CalcSimilitudCoseno.getInstance()));
         similaresTfIdf.setOnAction(e -> buscarSimilares(titulo, autor, pedirNumeroPopUp(), CalcSimilitudTfIdf.getInstance()));
 
-        eliminarDoc.setOnAction(e -> eliminarDocumento(titulo, autor));
+        eliminarDoc.setOnAction(e -> eliminarDocumento(titulo, autor, region));
 
         menuSimilares.getItems().addAll(similaresFreq, similaresCoseno, similaresTfIdf);
         contextMenu.getItems().addAll(menuSimilares, eliminarDoc);

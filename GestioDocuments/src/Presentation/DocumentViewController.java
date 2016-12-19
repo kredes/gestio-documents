@@ -75,7 +75,8 @@ public class DocumentViewController extends ViewController {
                         docViewTag.getText(),
                         docViewContenido.getText()
                 );
-                System.out.println(d.getId());
+                creandoDocumento = false;
+                docActual = d;
             } catch (IOException e) {
                 popupError("IOException: " + e.getCause());
             }
