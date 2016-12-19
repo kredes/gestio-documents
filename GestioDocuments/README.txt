@@ -1,14 +1,21 @@
 Jordi Mora Pruna, Andrés Insaurralde Borzani, Àlex Serra Vidal y Alberto Gómez Cabrera
 -------------------------------------------------------------------------------------
 
+La carga de la segunda entrega se ha dividido de la siguiente manera:
+- Expresión boleana: Jordi Mora y Àlex Serra.
+- Interfaz gráfica: Andrés Insaurralde y Alberto Gómez.
+
 Diagrama de clases y casos de uso se encuentran dentro del directorio "UML y casos de uso"
 
 En el directorio "GestioDocuments" se encuentra la raíz del proyecto:
 	- datos: ficheros de los documentos utilizados en el programa.
-	- src: Main.java del programa y packages "Domain" y "Persistence"
+	- src: Main del programa(GestioDocuments/src/Presentation/Main.java) y packages "Domain", "Persistence" y "Presentation"
+	- El Main que se encuentra en GestioDocuments/src/ es el Main de la anterior entrega.
 
 Para poder ejecutar el fichero .JAR se debe hacer desde "GestioDocuments/" con el comando:
 	java -jar GestioDocuments.jar
+
+En Windows lo hemos testeado y también se puede ejecutar haciendo doble clic desde el directorio donde se encuentra (GestioDocuments/)
 
 
 -------------------------------------------
@@ -22,14 +29,20 @@ Atributos duplicados en la clase Documento
 ------------
 SIMILITUDES
 -------------
-Cálculo de Similitud Freq:
+Cálculo de Similitud Freq (AND):
 	- Devuelve el número de palabras coincidentes relacionado con la colección (top words) entre el documento1 y el documento2. Si se ejecuta desde el driver de Similitud no ofrece un valor porcentual, si se ejecuta desde el dirver de los casos de uso, se normaliza y ofrece un valor porcentual.
 
 Cálculo de Similitud Coseno:
 	- El cálculo de la similitud por coseno se realiza con los vectores normalizados que contienen la frecuencia de las palabras de sus documentos. Se calcula el coseno entre dos vectores para saber la distancia angular (y calcular el parecido) que hay entre ellos.
 
-Cálculo de Similitud TD IDF:
+Cálculo de Similitud TF IDF:
 	- El cálculo de la similitud por TF IDF calcula el peso de las palabras en cada documento, en forma de vector. Este peso viene definido por una relación entre el número de documentos que tienen una palabra en común (cuánto menos común es una palabra, más peso tiene) y el número de veces que aparece una palabra en el propio documento. Para comparar estos vectores se aplica la similitud del coseno.
+
+
+------------------------------------------
+COMENTARIO SOBRE LOS MÉTODOS DE SIMILITUD
+------------------------------------------
+Despues de haber utilizado estos métodos nos hemos encontrado que el metodo menos preciso es el de la Similitud de frecuencias(AND). Los resultados de los métodos de similitud por coseno y similitud TF IDF són mas cercanos y más precisos pero si nos tuviesemos que decantar po alguno de ellos sin duda sería el de similitud TF IDF.
 
 
 -------------------
