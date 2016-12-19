@@ -151,7 +151,7 @@ public class Collection {
         ControladorPersistencia.getInstance().sobreescribirDocumento(d);
 
         // Eliminar el original de indexAutor + Añadir el nuevo a indexAutor
-        for (String autor : ControladorPersistencia.getInstance().getDocumento(IdModificado).getAutoresStrings()) {
+        /*for (String autor : ControladorPersistencia.getInstance().getDocumento(IdModificado).getAutoresStrings()) {
             ArrayList<Documento> docsAutor = indexAutor.get(autor);
             if (docsAutor != null) docsAutor.remove(ControladorPersistencia.getInstance().getDocumento(IdModificado));
         }
@@ -164,7 +164,13 @@ public class Collection {
                 docsAutor.add(docNuevo);
                 indexAutor.put(autor, docsAutor);
             }
+        }*/
+
+        for (String autor : ControladorPersistencia.getInstance().getDocumento(IdModificado).getAutoresStrings()) {
+            indexAutor.get(autor).remove(ControladorPersistencia.getInstance().getDocumento(IdModificado));
+            //indexAutor.get(autor).add(docNuevo);
         }
+
 
         // Eliminar el original de indexTitulo + Añadir el nuevo a indexTitulo
         ArrayList<Documento> docsTitulo = indexTitulo.get(ControladorPersistencia.getInstance().getDocumento(IdModificado).getTituloString());
