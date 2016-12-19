@@ -149,12 +149,55 @@ public class Collection {
         d.setContent(docNuevo.getArticuloString());
         d.setEtiquetas(docNuevo.getEtiquetasStrings());
         ControladorPersistencia.getInstance().sobreescribirDocumento(d);
+
+        // Eliminar el original de indexAutor + Añadir el nuevo a indexAutor
+        for (String autor : ControladorPersistencia.getInstance().getDocumento(IdModificado).getAutoresStrings()) {
+            ArrayList<Documento> docsAutor = indexAutor.get(autor);
+            if (docsAutor != null) docsAutor.remove(ControladorPersistencia.getInstance().getDocumento(IdModificado));
+        }
+
+        for (String autor : docNuevo.getAutoresStrings()) {
+            ArrayList<Documento> docsAutor = indexAutor.get(autor);
+            if (docsAutor != null) docsAutor.add(docNuevo);
+            else {
+                docsAutor = new ArrayList<>();
+                docsAutor.add(docNuevo);
+                indexAutor.put(autor, docsAutor);
+            }
+        }
+
+        // Eliminar el original de indexTitulo + Añadir el nuevo a indexTitulo
+        ArrayList<Documento> docsTitulo = indexTitulo.get(ControladorPersistencia.getInstance().getDocumento(IdModificado).getTituloString());
+        if (docsTitulo != null) docsTitulo.remove(ControladorPersistencia.getInstance().getDocumento(IdModificado));
+
+        docsTitulo = indexTitulo.get(docNuevo.getTituloString());
+        if (docsTitulo != null) docsTitulo.add(docNuevo);
+        else {
+            docsTitulo = new ArrayList<>();
+            docsTitulo.add(docNuevo);
+            indexTitulo.put(d.getTituloString(), docsTitulo);
+        }
+        // indexID se mantiene igual
     }
 
     //Pre: cert
     public void eliminarDoc(Documento doc) throws IOException{
-        ControladorPersistencia.getInstance().eliminarDocumento(doc);
+        // Eliminar de indexAutor
+        for (String autor : doc.getAutoresStrings()) {
+            ArrayList<Documento> docsAutor = indexAutor.get(autor);
+            if (docsAutor != null) docsAutor.remove(doc);
+        }
+
+        // Eliminar de indexTitulo
+        ArrayList<Documento> docsTitulo = indexTitulo.get(doc);
+        if (docsTitulo != null) docsTitulo.remove(doc);
+
+        // Eliminar de indexID
+        indexID.remove(String.valueOf(doc.getId()));
+
         coleccion.remove(doc.getId());
+
+        ControladorPersistencia.getInstance().eliminarDocumento(doc);
     }
 
     /* GETTERS */
