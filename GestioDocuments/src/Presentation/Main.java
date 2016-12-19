@@ -54,7 +54,7 @@ public class Main extends Application {
             controller.setApp(this);
             controller.setUpView();
 
-            stage.setTitle("GestioDocuments v0.0.0 - Main View");
+            stage.setTitle("GestioDocuments v2.1.0 - Main View");
             stage.setScene(scene);
             stage.show();
 
