@@ -11,8 +11,12 @@ Para poder ejecutar el fichero .JAR se debe hacer desde "GestioDocuments/" con e
 	java -jar GestioDocuments.jar
 
 
-
-Dentro del código hay partes sin finalizar (que no pertenecen a la 1a entrega) ya que van a ser parte del programa final cuando se presente en una segunda entrega (Clases, funciones, estructuras de datos...).
+-------------------------------------------
+Atributos duplicados en la clase Documento
+-------------------------------------------
+ Conceptos duplicados:
+ - los de Frase son para hacer busquedas sin stop words ni palabras no top words.
+ - los de String para presentarlo bien formateado al visualizar documentos y buscar secuencias de carácteres
 
 
 ------------
@@ -43,6 +47,7 @@ Cómo se ejecuta el cálculo de la relevancia:
 	TF-IDF con todos los documentos de la colección, y se devuelve los k documentos más similares al ficticio.
 
 	Hemos utilizado la similitud TF IDF porque creemos que es la más optima de las que hemos implementado.
+
 
 --------------------
 JUEGOS DE PRUEBAS:
