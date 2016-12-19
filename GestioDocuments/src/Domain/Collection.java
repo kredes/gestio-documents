@@ -143,17 +143,24 @@ public class Collection {
 
     //Pre: IdModificado tiene que ser el ID de un Doc existente que se quiere modificar
     public void modificarDoc(Integer IdModificado, Documento docNuevo) throws IOException{
-        Documento d = ControladorPersistencia.getInstance().getDocumento(IdModificado);
+
+        //Documento d = ControladorPersistencia.getInstance().getDocumento(IdModificado);
+
+        //Documento d = indexID.get(docNuevo.getId());
+
+        /*
         d.setTitulo(docNuevo.getTituloString());
         d.setAutores(docNuevo.getAutoresStrings());
         d.setContent(docNuevo.getArticuloString());
         d.setEtiquetas(docNuevo.getEtiquetasStrings());
         ControladorPersistencia.getInstance().sobreescribirDocumento(d);
+*/
 
         // Eliminar el original de indexAutor + Añadir el nuevo a indexAutor
         for (String autor : ControladorPersistencia.getInstance().getDocumento(IdModificado).getAutoresStrings()) {
             ArrayList<Documento> docsAutor = indexAutor.get(autor);
-            if (docsAutor != null) docsAutor.remove(ControladorPersistencia.getInstance().getDocumento(IdModificado));
+            if (docsAutor != null) docsAutor.remove(docNuevo);
+            //if (docsAutor != null) docsAutor.remove(ControladorPersistencia.getInstance().getDocumento(IdModificado));
         }
 
         for (String autor : docNuevo.getAutoresStrings()) {
@@ -175,8 +182,10 @@ public class Collection {
         else {
             docsTitulo = new ArrayList<>();
             docsTitulo.add(docNuevo);
-            indexTitulo.put(d.getTituloString(), docsTitulo);
+            indexTitulo.put(docNuevo.getTituloString(), docsTitulo);
         }
+
+        ControladorPersistencia.getInstance().sobreescribirDocumento(docNuevo);
         // indexID se mantiene igual
     }
 
@@ -189,7 +198,7 @@ public class Collection {
         }
 
         // Eliminar de indexTitulo
-        ArrayList<Documento> docsTitulo = indexTitulo.get(doc);
+        ArrayList<Documento> docsTitulo = indexTitulo.get(doc.getTituloString());
         if (docsTitulo != null) docsTitulo.remove(doc);
 
         // Eliminar de indexID

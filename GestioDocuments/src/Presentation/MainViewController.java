@@ -160,10 +160,10 @@ public class MainViewController extends ViewController {
                     DocumentListItem item = new DocumentListItem();
                     item.fillWithoutPercentage(doc);
 
-                    String autores = doc.getAutoresStrings().isEmpty() ? "(sin autor)" : String.join(",", doc.getAutoresStrings());
+                    String autor = doc.getAutoresStrings().isEmpty() ? "" : doc.getAutoresStrings().get(0);
 
-                    setDocItemDobleClick(item, doc.getTituloString(), autores);
-                    setDocItemContextMenu(item, doc.getTituloString(), autores);
+                    setDocItemDobleClick(item, doc.getTituloString(), autor);
+                    setDocItemContextMenu(item, doc.getTituloString(), autor);
 
                     items.add(item);
                 }
@@ -181,20 +181,32 @@ public class MainViewController extends ViewController {
             String query = buscarQueryTexto.getText();
             int k = Integer.valueOf(buscarQueryK.getText());
 
+            if (k > Collection.getInstance().getNDocs()) k = Collection.getInstance().getNDocs();
+
             ArrayList<MyPair<Documento, Double>> relevantes = ctrlDominio.buscarRelevantes(query, k);
 
             ObservableList<DocumentListItem> items = FXCollections.observableArrayList();
             for (MyPair<Documento, Double> pair : relevantes) {
+                if (pair.getValue().isNaN()) continue;
+
                 Documento doc = pair.getKey();
                 DocumentListItem item = new DocumentListItem();
                 item.fillWithPercentage(doc, pair.getValue());
 
-                setDocItemDobleClick(item, doc.getTituloString(), doc.getAutoresStrings().get(0));
-                setDocItemContextMenu(item, doc.getTituloString(), doc.getAutoresStrings().get(0));
+                String autor = doc.getAutoresStrings().isEmpty() ? "" : doc.getAutoresStrings().get(0);
+
+                setDocItemDobleClick(item, doc.getTituloString(), autor);
+                setDocItemContextMenu(item, doc.getTituloString(), autor);
 
                 items.add(item);
             }
-            listaResultados.setItems(items);
+            if (items.isEmpty()) {
+                popupError("No se han encontrado documentos relevantes");
+                listaResultados.getItems().clear();
+            } else {
+                listaResultados.setItems(items);
+            }
+
         } catch (NumberFormatException e) {
             popupError("Número inválido");
         } catch (IOException e) {
@@ -278,7 +290,10 @@ public class MainViewController extends ViewController {
         stage.showAndWait();
 
         try {
-            return Integer.valueOf(numberField.getText());
+            int k = Integer.valueOf(numberField.getText());
+            if (k > Collection.getInstance().getNDocs()) k = Collection.getInstance().getNDocs();
+
+            return k;
         } catch (Exception e) {
             return 10;
         }

@@ -184,7 +184,9 @@ public class ControladorDominio implements CtrlDominio {
         ArrayList<String> palabras = new ArrayList<>();
         for (Palabra p : f.getFrase()) palabras.add(p.toString());
 
-        return cr.consultaRelevantes(palabras, k);
+        ArrayList<MyPair<Documento, Double>> relevantes = cr.consultaRelevantes(palabras, k);
+
+        return relevantes;
     }
 
     @Override
