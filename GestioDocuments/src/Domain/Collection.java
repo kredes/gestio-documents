@@ -115,9 +115,30 @@ public class Collection {
 
     public void afegirDoc(Documento d) throws IOException
     {
-        // TODO: ¿No actualiza los indexs?
+        // TODO: Comprobar que actualiza bien los indexs
         ControladorPersistencia.getInstance().guardaDocumento(d, ControladorPersistencia.getInstance().getIdCounter());
         coleccion.put(d.getId(), d);
+
+        // Actualizar indexAutor
+        for (String autor : d.getAutoresStrings()) {
+            ArrayList<Documento> docsAutor = indexAutor.get(autor);
+            if (docsAutor != null) docsAutor.add(d);
+            else {
+                docsAutor = new ArrayList<>();
+                docsAutor.add(d);
+                indexAutor.put(autor, docsAutor);
+            }
+        }
+        // Actualizar indexTitulo
+        ArrayList<Documento> docsTitulo = indexTitulo.get(d.getTituloString());
+        if (docsTitulo != null) docsTitulo.add(d);
+        else {
+            docsTitulo = new ArrayList<>();
+            docsTitulo.add(d);
+            indexTitulo.put(d.getTituloString(), docsTitulo);
+        }
+        // Actualizar indexID
+        indexID.put(String.valueOf(d.getId()), d);
     }
 
     //Pre: IdModificado tiene que ser el ID de un Doc existente que se quiere modificar
