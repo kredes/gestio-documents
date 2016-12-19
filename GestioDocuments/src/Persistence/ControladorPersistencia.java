@@ -202,6 +202,7 @@ public class ControladorPersistencia implements CtrlPersistencia {
         escribirDocumento(d, d.getId());
     }
 
+    // TODO: Creo que esto provocaría algún fallo si se crea un documento y justo después se crea uno nuevo sin guardar el otro
     public int nextId() {
         int aux = idCounter;
         return aux;

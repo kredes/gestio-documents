@@ -112,8 +112,10 @@ public class Collection {
         return instance;
     }
 
+
     public void afegirDoc(Documento d) throws IOException
     {
+        // TODO: ¿No actualiza los indexs?
         ControladorPersistencia.getInstance().guardaDocumento(d, ControladorPersistencia.getInstance().getIdCounter());
         coleccion.put(d.getId(), d);
     }

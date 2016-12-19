@@ -19,4 +19,10 @@ public interface CtrlDominio {
     Set<Documento> buscarExpresion(String expresion) throws SyntaxErrorException, IOException;
 
     ArrayList<MyPair<Documento, Double>> buscarRelevantes(String query, int k) throws IOException, DocumentoNoExiste;
+
+    Documento anadirDocumento(String titulo, String autores, String etiqueta, String contenido) throws IOException;
+
+    void modificarDocumento(Documento d) throws IOException;
+
+    void eliminarDocumento(Documento d) throws IOException;
 }

@@ -11,7 +11,7 @@ public class ControladorDominio implements CtrlDominio {
 
     private static ControladorDominio instance;
 
-    private CtrlPersistencia ctrlPersistencia;
+    private ControladorPersistencia ctrlPersistencia;
     private Collection collection;
 
 
@@ -185,5 +185,28 @@ public class ControladorDominio implements CtrlDominio {
         for (Palabra p : f.getFrase()) palabras.add(p.toString());
 
         return cr.consultaRelevantes(palabras, k);
+    }
+
+    @Override
+    public Documento anadirDocumento(String titulo, String autores, String etiqueta, String contenido) throws IOException {
+        Documento nuevo = new Documento(
+                ctrlPersistencia.nextId(),
+                titulo,
+                new ArrayList<String>(Arrays.asList(autores.split(","))),
+                new ArrayList<String>(Arrays.asList(etiqueta)),
+                contenido
+        );
+        collection.afegirDoc(nuevo);
+        return nuevo;
+    }
+
+    @Override
+    public void modificarDocumento(Documento d) throws IOException {
+        collection.modificarDoc(d.getId(), d);
+    }
+
+    @Override
+    public void eliminarDocumento(Documento d) throws IOException {
+        collection.eliminarDoc(d);
     }
 }

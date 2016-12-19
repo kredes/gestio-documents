@@ -1,6 +1,4 @@
-package Presentation;/**
- * Created by kredes on 11/12/2016.
- */
+package Presentation;
 
 import Domain.Collection;
 import javafx.application.Application;
@@ -17,6 +15,7 @@ public class Main extends Application {
     private Pane root = new Pane();
     private static Scene scene;
     private Stage stage;
+
 
     public Pane getRoot() {
         return root;
@@ -71,7 +70,7 @@ public class Main extends Application {
             controller.setApp(this);
             controller.setUpView(titulo, autor);
 
-            stage.setTitle("GestioDocuments - Document View [No editable]");
+            stage.setTitle("GestioDocuments - Document View");
             stage.setScene(scene);
             stage.show();
         } catch (Exception e) {

@@ -6,7 +6,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseButton;
@@ -41,11 +40,6 @@ public class MainViewController extends ViewController {
         functionalityVBox.setPrefWidth(scene.getWidth()/3);
         listaResultados.setPrefWidth(scene.getWidth()*2/3);
         resultsVBox.setPrefWidth(scene.getWidth()*2/3);
-    }
-
-    @Override
-    protected void errorControladorDominio() {
-
     }
 
     /* HANDLERS */
@@ -208,9 +202,23 @@ public class MainViewController extends ViewController {
         } catch (DocumentoNoExiste e) {
             e.printStackTrace();
         }
-
-
     }
+
+    private void eliminarDocumento(String titulo, String autor) {
+        try {
+            Documento doc = ctrlDominio.buscarDocumento(titulo, autor);
+            ctrlDominio.eliminarDocumento(doc);
+        } catch (DocumentoNoExiste e) {
+            popupError("El documento que quieres eliminar no existe");
+        } catch (IOException e) {
+            popupError("IOException: " + e.getCause());
+        }
+    }
+
+    @FXML private void crearDocumento() {
+        app.changeToDocumentView(null, null);
+    }
+
 
     /* AUXILIARES */
     private void setDocItemDobleClick(Region region, String titulo, String autor) {
@@ -235,13 +243,16 @@ public class MainViewController extends ViewController {
         MenuItem similaresFreq = new MenuItem("Frecuencia");
         MenuItem similaresCoseno = new MenuItem("Coseno");
         MenuItem similaresTfIdf = new MenuItem("Tf-Idf");
+        MenuItem eliminarDoc = new MenuItem("Eliminar de la colección");
 
         similaresFreq.setOnAction(e -> buscarSimilares(titulo, autor, pedirNumeroPopUp(), CalcSimilitudFreq.getInstance()));
         similaresCoseno.setOnAction(e ->  buscarSimilares(titulo, autor, pedirNumeroPopUp(), CalcSimilitudCoseno.getInstance()));
         similaresTfIdf.setOnAction(e -> buscarSimilares(titulo, autor, pedirNumeroPopUp(), CalcSimilitudTfIdf.getInstance()));
 
+        eliminarDoc.setOnAction(e -> eliminarDocumento(titulo, autor));
+
         menuSimilares.getItems().addAll(similaresFreq, similaresCoseno, similaresTfIdf);
-        contextMenu.getItems().add(menuSimilares);
+        contextMenu.getItems().addAll(menuSimilares, eliminarDoc);
 
         region.setOnContextMenuRequested(event -> contextMenu.show(region, event.getScreenX(), event.getScreenY()));
     }
@@ -271,25 +282,5 @@ public class MainViewController extends ViewController {
         } catch (Exception e) {
             return 10;
         }
-    }
-
-    private void popupError(String mensaje) {
-        VBox pane = new VBox(10);
-        pane.setPadding(new Insets(20));
-
-        Label labelMensaje = new Label(mensaje);
-        Button aceptar = new Button("Aceptar");
-        aceptar.setAlignment(Pos.CENTER);
-        pane.getChildren().addAll(labelMensaje, aceptar);
-
-        Scene scene = new Scene(pane);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.initOwner(app.getStage());
-        stage.initModality(Modality.WINDOW_MODAL);
-
-        aceptar.setOnAction(event -> stage.close());
-
-        stage.showAndWait();
     }
 }

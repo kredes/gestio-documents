@@ -1,6 +1,5 @@
-.text-area-as-label {
-    -fx-background-color:       transparent ;
-    -fx-background-insets:      0px ;
+.textAreaAsLabel, .textAreaAsLabel .content, .textAreaAsLabel .scroll-pane, .textAreaAsLabel .scroll-pane .viewport, .textAreaAsLabel .scroll-pane .content {
+    -fx-background-color:       transparent;
 }
 
 .background {
@@ -36,7 +35,33 @@
         -fx-padding: 8 20 8 20;
 }
 
+.nuevoDoc {
+    -fx-background-image:       url("../icons/add.png");
+    -fx-background-size:        20 20;
+    -fx-background-repeat:      no-repeat;
+    -fx-padding:                5 5 5 5;
+    -fx-background-position:    center;
+    -fx-pref-width:             30px;
+    -fx-border-radius:          0px;
+
+    -fx-background-color:
+            #000000,
+            linear-gradient(#7ebcea, #2f4b8f),
+            linear-gradient(#426ab7, #263e75),
+            linear-gradient(#395cab, #223768);
+        -fx-background-insets: 0,1,2,3;
+        -fx-background-radius: 3,2,2,2;
+        -fx-padding: 8 20 8 20;
+}
+
 .search:hover {
+    -fx-border-width:           1;
+    -fx-border-color:           #039ed3;
+    -fx-border-radius:          3,2,2,2;
+    -fx-effect:                 dropshadow( one-pass-box , #039ed3 , 28 , 0.0 , 0 , 0 );
+}
+
+.nuevoDoc:hover {
     -fx-border-width:           1;
     -fx-border-color:           #039ed3;
     -fx-border-radius:          3,2,2,2;

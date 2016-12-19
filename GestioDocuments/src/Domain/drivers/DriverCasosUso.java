@@ -19,7 +19,7 @@ public class DriverCasosUso {
         ctrlDominio = ControladorDominio.getInstance();
     }
 
-    public static void run() throws AutorNoExiste {
+    public static void run() {
         while (true) {
             try {
                 Thread.sleep(500);
@@ -46,11 +46,15 @@ public class DriverCasosUso {
                 case 1: {
                     System.out.print("Autors: ");
                     String autor = scanner.nextLine();
-                    System.out.println(
-                        String.format(
-                            "ArrayList<String> = {%s}\n",
-                            String.join(", ", ctrlDominio.librosAutor(autor)))
-                    );
+                    try {
+                        System.out.println(
+                                String.format(
+                                        "ArrayList<String> = {%s}\n",
+                                        String.join(", ", ctrlDominio.librosAutor(autor)))
+                        );
+                    } catch (AutorNoExiste e) {
+                        e.printStackTrace();
+                    }
                     break;
                 }
                 // Lista de autores que empiezan por un prefijo (que puede ser vacío)
